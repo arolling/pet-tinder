@@ -2,11 +2,9 @@ var petDB = (function() {
 
   var pDB = {};
   var datastore = null;
-  console.log('accessed db.js');
-  pDB.open = function(callback) {
-    console.log('accessed pdb.open');
-    var version = 1;
 
+  pDB.open = function(callback) {
+    var version = 1;
     var request = indexedDB.open('pets', version);
 
     request.onupgradeneeded = function(e) {
@@ -89,8 +87,8 @@ var petDB = (function() {
 
       // Create an object for the todo item.
       var pet = {
-        'name': animal.name,
-        'age': animal.age,
+        'petName': animal.animalName,
+        'weight': animal.animalWeight,
         'timestamp': timestamp
       };
 

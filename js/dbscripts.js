@@ -26,7 +26,8 @@ window.onload = function() {
 
   // // Get references to the form elements.
   var newPetForm = document.getElementById('new-pet-form');
-  var newPetInput = document.getElementById('new-pet');
+  var newPetName = document.getElementById('new-pet');
+  var newPetWeight = document.getElementById('new-weight');
 
   //
   // Handle new todo item form submissions.
@@ -34,17 +35,20 @@ window.onload = function() {
     // Get the todo text.
 //    var text = newTodoInput.value;
   testButton.onclick = function(){
-    var animal = new Animal (newPetInput.value, 12);
+    console.log(newPetWeight);
+    var animal = new Animal (newPetName.value, 10);
+    console.log(animal);
     // Check to make sure the text is not blank (or just spaces).
 
       // Create the todo item.
       petDB.createPet(animal, function(pet) {
         refreshPets();
       });
-
+      newPetName.value = '';
+      newPetWeight.value = '';
   }
     // Reset the input field.
-    newPetInput.value = '';
+
 
     // Don't send the form.
   return false;
@@ -71,7 +75,7 @@ function refreshPets() {
       li.appendChild(checkbox);
 
       var span = document.createElement('span');
-      span.innerHTML = pet.name + pet.age;
+      span.innerHTML = pet.petName + pet.weight;
 
       li.appendChild(span);
 
