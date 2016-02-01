@@ -19,14 +19,14 @@ body {
   border-radius: 3px;
 }
 
-#new-todo-form {
+#new-pet-form {
 	padding: 0.5em;
 	background: #0088CC;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
 
-#new-todo {
+#new-pet {
 	width: 100%;
 	padding: 0.5em;
 	font-size: 1em;
@@ -34,13 +34,13 @@ body {
 	border: 0;
 }
 
-#todo-items {
+#pet-items {
 	list-style: none;
 	padding: 0.5em 1em;
 	margin: 0;
 }
 
-#todo-items li {
+#pet-items li {
 	font-size: 0.9em;
 	padding: 0.5em;
 	background: #FFF;

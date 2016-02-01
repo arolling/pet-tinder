@@ -129,7 +129,7 @@ var petDB = (function() {
     }
   };
 
-
+  console.log(pDB[1]);
   // Export the pDB object.
   return pDB;
 

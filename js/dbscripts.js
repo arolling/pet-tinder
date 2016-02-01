@@ -1,7 +1,7 @@
-function Pet(name, age){
-  this.name = name;
-  this.age = age;
-}
+// function Pet(name, age){
+//   this.name = name;
+//   this.age = age;
+// }
 // var success = function() {
 //   alert('success');
 // }
@@ -25,16 +25,16 @@ window.onload = function() {
 
 
   // // Get references to the form elements.
-  // var newTodoForm = document.getElementById('new-todo-form');
-  // var newTodoInput = document.getElementById('new-todo');
-  //
+  var newPetForm = document.getElementById('new-pet-form');
+  var newPetInput = document.getElementById('new-pet');
+
   //
   // Handle new todo item form submissions.
 //  newTodoForm.onsubmit = function() {
     // Get the todo text.
 //    var text = newTodoInput.value;
   testButton.onclick = function(){
-    var animal = new Pet ('Bill', 12);
+    var animal = new Animal (newPetInput.value, 12);
     // Check to make sure the text is not blank (or just spaces).
 
       // Create the todo item.
@@ -44,10 +44,10 @@ window.onload = function() {
 
   }
     // Reset the input field.
-    //newTodoInput.value = '';
+    newPetInput.value = '';
 
     // Don't send the form.
-  //  return false;
+  return false;
 //  };
 
 }
@@ -55,7 +55,7 @@ window.onload = function() {
 // Update the list of todo items.
 function refreshPets() {
   petDB.fetchPets(function(pets) {
-    var petList = document.getElementById('todo-items');
+    var petList = document.getElementById('pet-items');
     petList.innerHTML = '';
 
     for(var i = 0; i < pets.length; i++) {
