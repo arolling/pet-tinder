@@ -5,3 +5,10 @@ describe('Pet', function() {
     expect(testPet.age).to.equal(12);
   });
 });
+
+describe('petDB', function() {
+  it('will open a database called petDB', function(){
+
+    expect(petDB).to.equal(true); // hopefully returning our version number
+  });
+});

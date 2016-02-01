@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Todo List App</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="page-wrapper">
+    <!-- Form for new Todo Items -->
+    <form id="new-todo-form" method="POST" action="#">
+      <input type="text" name="new-todo" id="new-todo" placeholder="Enter a todo item..." required>
+    </form>
+    <button type="button" id="testButton" name="testButton">test</button>
+    <!-- Todo Item List -->
+    <ul id="todo-items"></ul>
+  </div>
+
+  <script src="js/db.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>
