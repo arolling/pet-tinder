@@ -12,8 +12,9 @@ describe("Person", function(){
 
 describe("Animal", function(){
   it("creates a new profile for an animal", function(){
-    var testAnimal = new Animal("Astro");
+    var testAnimal = new Animal("Astro", 34);
     expect(testAnimal.animalName).to.equal("Astro");
+    expect(testAnimal.animalWeight).to.equal(34);
     expect(testAnimal.ageCategory).to.equal("");
     expect(testAnimal.species).to.equal("");
     expect(testAnimal.breed).to.equal("");
