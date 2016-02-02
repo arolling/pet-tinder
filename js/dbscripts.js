@@ -1,16 +1,3 @@
-// function Pet(name, age){
-//   this.name = name;
-//   this.age = age;
-// }
-// var success = function() {
-//   alert('success');
-// }
-//
-// var testme = function() {
-//   var tester = petDB.open(success);
-//   return tester
-// }
-
 /**
  * @file The main logic for the Todo List App.
  * @author Matt West <matt.west@kojilabs.com>
@@ -23,36 +10,40 @@ window.onload = function() {
   // Display the todo items.
   petDB.open(refreshPets);
 
-
   // // Get references to the form elements.
   var newPetForm = document.getElementById('new-pet-form');
   var newPetName = document.getElementById('new-pet');
   var newPetWeight = document.getElementById('new-weight');
+  var newBreed = document.getElementById('new-breed');
+  // Age Category - radio buttons
+  // Species - dropdown/radios
+  //temperament - docile/active, introvert/extrovert (pick 2)
+  //profile pic - file url?
+  // Handle new pet submissions.
 
-  //
-  // Handle new todo item form submissions.
-//  newTodoForm.onsubmit = function() {
-    // Get the todo text.
-//    var text = newTodoInput.value;
   testButton.onclick = function(){
-    console.log(newPetWeight);
-    var animal = new Animal (newPetName.value, newPetWeight.value);
-    console.log(animal);
-    // Check to make sure the text is not blank (or just spaces).
+    var newName = newPetName.value;
+    var newWeight = newPetWeight.value;
 
-      // Create the todo item.
+    // Check to make sure the text is not blank (or just spaces).
+    if ((newName.replace(/ /g,'') != '') || (newWeight.replace(/ /g,'') != '')) {
+      // Create the animal.
+      var animal = new Animal (newName, newWeight);
+      animal.breed = newBreed.value;
+      console.log(animal);
       petDB.createPet(animal, function(pet) {
         refreshPets();
       });
       newPetName.value = '';
       newPetWeight.value = '';
-  }
+      newBreed.value = '';
+    }
     // Reset the input field.
 
 
     // Don't send the form.
   return false;
-//  };
+  };
 
 }
 
@@ -77,6 +68,7 @@ function refreshPets() {
       var span = document.createElement('span');
       //span.innerHTML = pet.petName + pet.weight;
       span.innerHTML = pet.animalObject.animalName + pet.animalObject.animalWeight;
+      // BUG - FAILED TO ADD BREED TO DISPLAY~!!!!!!
       li.appendChild(span);
 
       petList.appendChild(li);
