@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Animal Database Entry</title>
 
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dbstyles.css">
 </head>
 <body>
   <div id="page-wrapper">
@@ -12,9 +12,37 @@
     <form id="new-pet-form" method="POST" action="#">
       <input type="text" name="new-pet" id="new-pet" placeholder="Enter an animal name" required>
       <input type="text" name="new-weight" id='new-weight' placeholder='Weight in Pounds'>
+      <input type="radio" name="species" value="Rabbit"><span class='radiotext'>Rabbit</span> <br>
+      <input type="radio" name="species" value="Hamster"><span class='radiotext'>Hamster</span><br>
+      <input type="radio" name="species" value="Cat"><span class='radiotext'>Cat</span><br>
+      <input type="radio" name="species" value="Dog"><span class='radiotext'>Dog</span><br>
+      <input type="radio" name="species" value="Mouse"><span class='radiotext'>Mouse</span><br>
+      <input type="radio" name="species" value="Snake"><span class='radiotext'>Snake</span><br>
+      <input type="radio" name="species" value="Lizard"><span class='radiotext'>Lizard</span><br>
       <input type="text" name="new-breed" id='new-breed' placeholder="Breed">
+      <select id="animalAge" name="animalAge">
+        <option value=""></option>
+        <option value="Baby">Baby</option>
+        <option value="Young">Young</option>
+        <option value="Adult">Adult</option>
+        <option value="Senior">Senior</option>
+      </select>
+      <select id="animalSocial" name="animalSocial">
+        <option value=""></option>
+        <option value="Friendly">Friendly</option>
+        <option value="Independent">Independent</option>
+      </select>
+      <select id="animalActivity" name="animalActivity">
+        <option value=""></option>
+        <option value="Active">Active</option>
+        <option value="Docile">Docile</option>
+      </select>
+      <br>
+      <input type="url" name="new-pic" id='new-pic' placeholder='URL for picture'>
+
+
     </form>
-    <button type="button" id="testButton" name="testButton">test</button>
+    <button type="button" id="addButton" name="addButton">Add Animal</button>
     <!-- Todo Item List -->
     <ul id="pet-items"></ul>
   </div>

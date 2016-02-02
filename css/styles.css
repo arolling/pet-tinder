@@ -28,22 +28,6 @@ body {
 	padding-bottom: 20px;
 }
 
-
-#page-wrapper {
-  width: 550px;
-  margin: 2.5em auto;
-  background: #FFF;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  border-radius: 3px;
-}
-
-#new-pet-form {
-	padding: 0.5em;
-	background: #0088CC;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
-
 input[type="text"] {
 	width: 100%;
 	padding: 0.5em;
@@ -51,20 +35,6 @@ input[type="text"] {
 	border-radius: 3px;
 	border: 0;
 	margin-bottom: 10px;
-}
-
-#pet-items {
-	list-style: none;
-	padding: 0.5em 1em;
-	margin: 0;
-}
-
-#pet-items li {
-	font-size: 0.9em;
-	padding: 0.5em;
-	background: #FFF;
-	border-bottom: 1px solid #EEE;
-	margin: 0.5em 0;
 }
 
 input[type="checkbox"] {

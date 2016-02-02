@@ -4,6 +4,16 @@
  * @license MIT {@link http://opensource.org/licenses/MIT}.
  */
 
+ // person object for testing
+ var human = new Person('Bob', 'Smith', 55);
+ var humans = [];
+ humans.push(human);
+ console.log(humans);
+ //end test object
+ 
+var filterResults = function(pets, humans) { // expects two arrays
+  return pets;
+}
 
 window.onload = function() {
 
@@ -15,21 +25,22 @@ window.onload = function() {
   var newPetName = document.getElementById('new-pet');
   var newPetWeight = document.getElementById('new-weight');
   var newBreed = document.getElementById('new-breed');
-  // Age Category - radio buttons
-  // Species - dropdown/radios
-  //temperament - docile/active, introvert/extrovert (pick 2)
+  var newPic = document.getElementById('new-pic');
   //profile pic - file url?
   // Handle new pet submissions.
-
-  testButton.onclick = function(){
+  addButton.onclick = function(){
     var newName = newPetName.value;
     var newWeight = newPetWeight.value;
-
     // Check to make sure the text is not blank (or just spaces).
     if ((newName.replace(/ /g,'') != '') || (newWeight.replace(/ /g,'') != '')) {
       // Create the animal.
       var animal = new Animal (newName, newWeight);
       animal.breed = newBreed.value;
+      animal.species = document.getElementById('new-pet-form')['species'].value;
+      animal.ageCategory = $('select#animalAge').val();
+      animal.temperament.push($('select#animalSocial').val());
+      animal.temperament.push($('select#animalActivity').val());
+      animal.profilePic = newPic.value;
       console.log(animal);
       petDB.createPet(animal, function(pet) {
         refreshPets();
@@ -50,13 +61,13 @@ window.onload = function() {
 // Update the list of todo items.
 function refreshPets() {
   petDB.fetchPets(function(pets) {
+
     var petList = document.getElementById('pet-items');
     petList.innerHTML = '';
-
+    var filteredPets = filterResults(pets, humans);
     for(var i = 0; i < pets.length; i++) {
-      // Read the todo items backwards (most recent first).
+      // Read the array items backwards (most recent first).
       var pet = pets[(pets.length - 1 - i)];
-
       var li = document.createElement('li');
       var checkbox = document.createElement('input');
       checkbox.type = "checkbox";
@@ -66,10 +77,12 @@ function refreshPets() {
       li.appendChild(checkbox);
 
       var span = document.createElement('span');
-      //span.innerHTML = pet.petName + pet.weight;
-      span.innerHTML = pet.animalObject.animalName + pet.animalObject.animalWeight;
-      // BUG - FAILED TO ADD BREED TO DISPLAY~!!!!!!
+      var image = document.createElement('img');
+      span.innerHTML = pet.animalObject.animalName + "<br>" + pet.animalObject.animalWeight + "<br>" + pet.animalObject.species + "<br>" + pet.animalObject.breed + "<br>" + pet.animalObject.ageCategory + "<br>" + pet.animalObject.temperament + "<br>";
+      image.setAttribute('src', pet.animalObject.profilePic);
+
       li.appendChild(span);
+      li.appendChild(image);
 
       petList.appendChild(li);
 
@@ -79,6 +92,7 @@ function refreshPets() {
 
         petDB.deletePet(id, refreshPets);
       });
+
     }
 
   });

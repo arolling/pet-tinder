@@ -56,7 +56,7 @@ var petDB = (function() {
     cursorRequest.onsuccess = function(e) {
       var result = e.target.result;
 
-      if (!!result == false) {
+      if (!!result == false) { //ASK A TEACHER ABOUT THIS IF POSSIBLE????
         return;
       }
 
@@ -87,8 +87,6 @@ var petDB = (function() {
 
       // Create an object for the todo item.
       var pet = {
-        // 'petName': animal.animalName,
-        // 'weight': animal.animalWeight,
         'animalObject': animal,
         'timestamp': timestamp
       };
@@ -127,8 +125,6 @@ var petDB = (function() {
       console.log(e);
     }
   };
-
-  console.log(pDB[1]);
   // Export the pDB object.
   return pDB;
 
