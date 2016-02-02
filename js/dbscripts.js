@@ -4,6 +4,9 @@
  * @license MIT {@link http://opensource.org/licenses/MIT}.
  */
 
+// function getRadioValue(radioName) {
+//   for (var i=0; i<)
+// }
 
 window.onload = function() {
 
@@ -15,12 +18,12 @@ window.onload = function() {
   var newPetName = document.getElementById('new-pet');
   var newPetWeight = document.getElementById('new-weight');
   var newBreed = document.getElementById('new-breed');
+  //var newSpecies = document.getElementsByClassName('species');
   // Age Category - radio buttons
   // Species - dropdown/radios
   //temperament - docile/active, introvert/extrovert (pick 2)
   //profile pic - file url?
   // Handle new pet submissions.
-
   testButton.onclick = function(){
     var newName = newPetName.value;
     var newWeight = newPetWeight.value;
@@ -30,7 +33,7 @@ window.onload = function() {
       // Create the animal.
       var animal = new Animal (newName, newWeight);
       animal.breed = newBreed.value;
-
+      animal.species = document.getElementById('new-pet-form')['species'].value;
       console.log(animal);
       petDB.createPet(animal, function(pet) {
         refreshPets();
@@ -68,7 +71,7 @@ function refreshPets() {
 
       var span = document.createElement('span');
       //span.innerHTML = pet.petName + pet.weight;
-      span.innerHTML = pet.animalObject.animalName + " " + pet.animalObject.animalWeight + " " + pet.animalObject.breed;
+      span.innerHTML = pet.animalObject.animalName + " " + pet.animalObject.animalWeight + " " + pet.animalObject.species + " " + pet.animalObject.breed;
 
       li.appendChild(span);
 
