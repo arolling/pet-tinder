@@ -6,19 +6,29 @@
 
  // person object for testing
  var human = new Person('Bob', 'Smith', 55);
- var humans = [];
- humans.push(human);
- console.log(humans);
+ //var humans = [];
+ human.animalType.push("Cat");
+ human.animalType.push("Lizard");
+ human.activeDocile = 'Active';
+ //humans.push(human);
+ //console.log(humans);
  //end test object
 
-var filterResults = function(pets, humans) { // expects two arrays
-  var selectedAnimals = [];
-  pets.forEach(function(animal) {
-    if (animal.species === 'Cat'){
-      selectedAnimals.push(animal);
+var filterResults = function(pets, human) { // expects pets array, human object
+  var remainingAnimals = [];
+  //console.log(pets);
+
+  for (var i=0; i < pets.length; i++) {
+    console.log(pets[i].animalObject.species);
+    for (var j=0; j < human.animalType.length; j++) {
+      if (pets[i].animalObject.species === human.animalType[j]){
+        remainingAnimals.push(pets[i]);
+      }
     }
-  });
-  return selectedAnimals;
+  }
+
+  //console.log(pets);
+  return remainingAnimals;
 }
 
 window.onload = function() {
@@ -70,7 +80,8 @@ function refreshPets() {
 
     var petList = document.getElementById('pet-items');
     petList.innerHTML = '';
-    var filteredPets = filterResults(pets, humans); //returns an array of animal objects that match criteria
+    console.log(pets);
+    var filteredPets = filterResults(pets, human); //returns an array of animal objects that match criteria
     for(var i = 0; i < filteredPets.length; i++) {
       // Read the array items backwards (most recent first).
       var pet = filteredPets[(filteredPets.length - 1 - i)];
