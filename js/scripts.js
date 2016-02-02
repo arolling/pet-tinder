@@ -33,8 +33,12 @@ $(document).ready(function() {
 
     var introvertedExtroverted = $("input[name=introvertedExtroverted]:checked").val();
     newPerson.introvertedExtroverted = introvertedExtroverted;
-    var activeDocile = $("input[name=activeDocile];checked").val;
+    var activeDocile = $("input[name=activeDocile]:checked").val();
     newPerson.activeDocile = activeDocile;
+    var budget = $("select#budget").val();
+    newPerson.budget = budget;
+    console.log(newPerson);
+
   });
 
 
