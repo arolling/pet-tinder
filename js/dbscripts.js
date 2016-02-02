@@ -18,7 +18,7 @@ window.onload = function() {
   var newPic = document.getElementById('new-pic');
   //profile pic - file url?
   // Handle new pet submissions.
-  testButton.onclick = function(){
+  addButton.onclick = function(){
     var newName = newPetName.value;
     var newWeight = newPetWeight.value;
     // Check to make sure the text is not blank (or just spaces).
@@ -70,7 +70,6 @@ function refreshPets() {
       var image = document.createElement('img');
       span.innerHTML = pet.animalObject.animalName + "<br>" + pet.animalObject.animalWeight + "<br>" + pet.animalObject.species + "<br>" + pet.animalObject.breed + "<br>" + pet.animalObject.ageCategory + "<br>" + pet.animalObject.temperament + "<br>";
       image.setAttribute('src', pet.animalObject.profilePic);
-
 
       li.appendChild(span);
       li.appendChild(image);
