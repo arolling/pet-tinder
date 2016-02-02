@@ -5,16 +5,22 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.12.0.js"></script>
+    <script src="js/db.js"></script>
     <script src="js/scripts.js"></script>
     <script src="js/db.js"></script>
     <script src="js/dbscripts.js"></script>
     <title>Pet Finder</title>
   </head>
 
+
   <body>
+    <div class="">
+      <h1>Adopt-a-Pet</h1>
+    </div>
     <div class="container">
       <form id = "newPerson">
         <div class="form-group">
+          <h3>Enter your information to get started:</h3>
           <label>First Name</label>
           <input type="text" class="form-control" id="firstName">
         </div>
@@ -26,7 +32,8 @@
           <label>Age</label>
           <input type="number" class="form-control" id="age">
         </div>
-
+        <hr>
+        <h4>Please select the type or types of pets you are looking to adopt:</h4>
         <label class="checkbox-inline">
           <input type="checkbox" class="species" value="Dog"> Dog
         </label>
@@ -48,22 +55,24 @@
         <label class="checkbox-inline">
           <input type="checkbox" class="species" value="Lizard"> Lizard
         </label>
-
-        <select class="form-control">
+        <hr>
+        <h4>Please select your monthly budget for your new pet:</h4>
+        <select class="form-control" id="budget">
           <option value="20">$20 or less</option>
           <option value="40">$20 to $40</option>
           <option value="60">$40 to $60</option>
           <option value="80">$60 to $80</option>
           <option value="100">I'm not worried about a budget</option>
         </select>
-
+        <hr>
+        <h4>Would you like your new pet to be more extroverted or introverted?</h4>
         <label class="radio-inline">
           <input type="radio" name="introvertedExtroverted" id="inlineRadio1" value="Extroverted">Extroverted
         </label>
         <label class="radio-inline">
           <input type="radio" name="introvertedExtroverted" id="inlineRadio2" value="Introverted"> Introverted
         </label>
-        <hr>
+        <h4>Would you like your new pet to be more active or docile?</h4>
         <label class="radio-inline">
           <input type="radio" name="activeDocile" id="inlineRadio3" value="active"> Active
         </label>
