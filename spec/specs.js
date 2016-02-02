@@ -6,6 +6,8 @@ describe("Person", function(){
     expect(testPerson.age).to.equal(35);
     expect(testPerson.budget).to.equal("");
     expect(testPerson.animalType).to.eql([]);
+    expect(testPerson.introvertedExtroverted).to.equal("")
+    expect(testPerson.activeDocile).to.equal("")
     // expect(testPerson.personalityHuman).to.equal("");
   });
 });

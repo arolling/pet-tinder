@@ -11,7 +11,7 @@
 
   <body>
     <div class="container">
-      <form>
+      <form id = "newPerson">
         <div class="form-group">
           <label>First Name</label>
           <input type="text" class="form-control" id="firstName">
@@ -19,6 +19,10 @@
         <div class="form-group">
           <label>Last Name</label>
           <input type="text" class="form-control" id="lastName">
+        </div>
+        <div class="form-group">
+          <label>Age</label>
+          <input type="number" class="form-control" id="age">
         </div>
 
         <label class="checkbox-inline">
@@ -44,26 +48,28 @@
         </label>
 
         <select class="form-control">
-          <option value="2000">$20 or less</option>
-          <option value="2040">$20 to $40</option>
-          <option value="4060">$40 to $60</option>
-          <option value="6080">$60 to $80</option>
-          <option value="8000">I'm not worried about a budget</option>
+          <option value="20">$20 or less</option>
+          <option value="40">$20 to $40</option>
+          <option value="60">$40 to $60</option>
+          <option value="80">$60 to $80</option>
+          <option value="100">I'm not worried about a budget</option>
         </select>
 
         <label class="radio-inline">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="extraverted">Extraverted
+          <input type="radio" name="introvertedExtroverted" id="inlineRadio1" value="Extroverted">Extroverted
         </label>
         <label class="radio-inline">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="intraverted"> Intraverted
+          <input type="radio" name="introvertedExtroverted" id="inlineRadio2" value="Introverted"> Introverted
         </label>
-
+        <hr>
         <label class="radio-inline">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="active"> Active
+          <input type="radio" name="activeDocile" id="inlineRadio3" value="active"> Active
         </label>
         <label class="radio-inline">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="docile"> Docile
+          <input type="radio" name="activeDocile" id="inlineRadio4" value="docile"> Docile
         </label>
+        <hr>
+        <button class="btn btn-info" type="submit">Submit</button>
 
         <!-- <label class="radio-inline">
           <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
