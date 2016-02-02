@@ -8,8 +8,25 @@ body, html {
 body {
 	font-family: Helvetica, Arial, sans-serif;
 	color: #545454;
+	background-repeat: repeat;
 	background: #F7F7F7;
 }
+
+.background-img {
+	background-image: url("../images/desertdog.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding-top: 50px;
+	padding-bottom: 100px;
+}
+
+.container {
+	max-width: 600px;
+	background-color: #fff;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
 
 #page-wrapper {
   width: 550px;
@@ -60,4 +77,25 @@ input[type="checkbox"] {
 
 #results {
 	display: none;
+}
+
+#main-header {
+	text-align: center;
+	padding-bottom: 10px;
+	color: #fff;
+
+}
+
+#main-header h1 {
+	font-size: 6em;
+	color: #fff;
+	opacity: .7;
+}
+
+label {
+	font-size: 1.1em;
+}
+
+#budget, .radio-inline {
+	font-size: 1.1em;
 }
