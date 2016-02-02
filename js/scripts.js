@@ -4,6 +4,8 @@ function Person(firstName, lastName, age) {
   this.age = age;
   this.animalType = [];
   this.budget = "";
+  this.introvertedExtroverted = "";
+  this.activeDocile = "";
   // this.personalityHuman = "";
 }
 
@@ -16,3 +18,24 @@ function Animal(animalName, animalWeight){
   this.temperament = [];
   this.profilePic = "";
 }
+
+$(document).ready(function() {
+  $("form#newPerson"). submit(function(event){
+    event.preventDefault();
+    var inputtedFirstName = $("input#firstName").val();
+    var inputtedLastName = $("input#lastName").val();
+    var inputtedAge = $("input#age").val();
+    var newPerson = new Person(inputtedFirstName, inputtedLastName, inputtedAge);
+
+    var animalType = $("input:checkbox:checked.species").map(function(){
+      newPerson.animalType.push((this).value);
+    });
+
+    var introvertedExtroverted = $("input[name=introvertedExtroverted]:checked").val();
+    newPerson.introvertedExtroverted = introvertedExtroverted;
+    var activeDocile = $("input[name=activeDocile];checked").val;
+    newPerson.activeDocile = activeDocile;
+  });
+
+
+});
