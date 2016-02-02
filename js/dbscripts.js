@@ -10,9 +10,15 @@
  humans.push(human);
  console.log(humans);
  //end test object
- 
+
 var filterResults = function(pets, humans) { // expects two arrays
-  return pets;
+  var selectedAnimals = [];
+  pets.forEach(function(animal) {
+    if (animal.species === 'Cat'){
+      selectedAnimals.push(animal);
+    }
+  });
+  return selectedAnimals;
 }
 
 window.onload = function() {
@@ -64,10 +70,10 @@ function refreshPets() {
 
     var petList = document.getElementById('pet-items');
     petList.innerHTML = '';
-    var filteredPets = filterResults(pets, humans);
-    for(var i = 0; i < pets.length; i++) {
+    var filteredPets = filterResults(pets, humans); //returns an array of animal objects that match criteria
+    for(var i = 0; i < filteredPets.length; i++) {
       // Read the array items backwards (most recent first).
-      var pet = pets[(pets.length - 1 - i)];
+      var pet = filteredPets[(filteredPets.length - 1 - i)];
       var li = document.createElement('li');
       var checkbox = document.createElement('input');
       checkbox.type = "checkbox";
