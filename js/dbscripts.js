@@ -4,6 +4,16 @@
  * @license MIT {@link http://opensource.org/licenses/MIT}.
  */
 
+ // person object for testing
+ var human = new Person('Bob', 'Smith', 55);
+ var humans = [];
+ humans.push(human);
+ console.log(humans);
+ //end test object
+ 
+var filterResults = function(pets, humans) { // expects two arrays
+  return pets;
+}
 
 window.onload = function() {
 
@@ -51,13 +61,13 @@ window.onload = function() {
 // Update the list of todo items.
 function refreshPets() {
   petDB.fetchPets(function(pets) {
+
     var petList = document.getElementById('pet-items');
     petList.innerHTML = '';
-
+    var filteredPets = filterResults(pets, humans);
     for(var i = 0; i < pets.length; i++) {
-      // Read the todo items backwards (most recent first).
+      // Read the array items backwards (most recent first).
       var pet = pets[(pets.length - 1 - i)];
-
       var li = document.createElement('li');
       var checkbox = document.createElement('input');
       checkbox.type = "checkbox";
@@ -82,6 +92,7 @@ function refreshPets() {
 
         petDB.deletePet(id, refreshPets);
       });
+
     }
 
   });
