@@ -52,3 +52,12 @@ input[type="text"] {
 input[type="checkbox"] {
   margin-right: 10px;
 }
+
+#post-search {
+	margin-top: 15px;
+
+}
+
+#results {
+	display: none;
+}

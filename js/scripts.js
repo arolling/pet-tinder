@@ -27,10 +27,13 @@ $(document).ready(function() {
     var inputtedAge = $("input#age").val();
     var newPerson = new Person(inputtedFirstName, inputtedLastName, inputtedAge);
 
+
     var animalType = $("input:checkbox:checked.species").map(function(){
       newPerson.animalType.push((this).value);
     });
 
+
+      console.log(animalType)
     var introvertedExtroverted = $("input[name=introvertedExtroverted]:checked").val();
     newPerson.introvertedExtroverted = introvertedExtroverted;
     var activeDocile = $("input[name=activeDocile]:checked").val();
@@ -38,8 +41,30 @@ $(document).ready(function() {
     var budget = $("select#budget").val();
     newPerson.budget = budget;
     console.log(newPerson);
+    if (newPerson.animalType.length === 0){
+      alert("Please select the type of animal or  you'd like to adopt!");
+    }
+    else {
+      $("#results").show();
+      $("#search-form").hide();
+    }
+
 
   });
 
+  $("#revise-search").click(function(event){
+    $("#search-form").show();
+    $("#results").hide();
+  });
+  $("#new-search").click(function(event){
+    $("#search-form").show();
+    $("#results").hide();
+    $("input#firstName").val('');
+    $("input#lastName").val('');
+    $("input:checkbox:checked.species").removeAttr("checked");
+    $("input[name=introvertedExtroverted]:checked").removeAttr("checked");
+    $("input[name=activeDocile]:checked").removeAttr("checked");
+    $("select#budget").val('20')
+  });
 
 });

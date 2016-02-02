@@ -16,7 +16,7 @@
     <div class="">
       <h1>Adopt-a-Pet</h1>
     </div>
-    <div class="container">
+    <div class="container" id="search-form">
       <form id = "newPerson">
         <div class="form-group">
           <h3>Enter your information to get started:</h3>
@@ -27,10 +27,10 @@
           <label>Last Name</label>
           <input type="text" class="form-control" id="lastName">
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label>Age</label>
           <input type="number" class="form-control" id="age">
-        </div>
+        </div> -->
         <hr>
         <h4>Please select the type or types of pets you are looking to adopt:</h4>
         <label class="checkbox-inline">
@@ -66,10 +66,10 @@
         <hr>
         <h4>Would you like your new pet to be more extroverted or introverted?</h4>
         <label class="radio-inline">
-          <input type="radio" name="introvertedExtroverted" id="inlineRadio1" value="Extroverted">Extroverted
+          <input type="radio" name="introvertedExtroverted" id="inlineRadio1" value="Friendly">Friendly
         </label>
         <label class="radio-inline">
-          <input type="radio" name="introvertedExtroverted" id="inlineRadio2" value="Introverted"> Introverted
+          <input type="radio" name="introvertedExtroverted" id="inlineRadio2" value="Independent"> Independent
         </label>
         <h4>Would you like your new pet to be more active or docile?</h4>
         <label class="radio-inline">
@@ -80,14 +80,18 @@
         </label>
         <hr>
         <button class="btn btn-info" type="submit">Submit</button>
-
-        <!-- <label class="radio-inline">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
-        </label>         -->
       </form>
     </div>
+    <div id = "results">
+      <div class="container" id="post-search">
+        <button class="btn btn-primary" id="revise-search">Revise Search</button>
+        <button class="btn btn-danger" id="new-search">New Search</button>
+      </div>
+      <div class="container" id="search-results">
+        Pet matches go here
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div>
+
   </body>
 </html>
