@@ -18,9 +18,8 @@ window.onload = function() {
   var newPetName = document.getElementById('new-pet');
   var newPetWeight = document.getElementById('new-weight');
   var newBreed = document.getElementById('new-breed');
-  //var newSpecies = document.getElementsByClassName('species');
   // Age Category - radio buttons
-  // Species - dropdown/radios
+
   //temperament - docile/active, introvert/extrovert (pick 2)
   //profile pic - file url?
   // Handle new pet submissions.
@@ -34,6 +33,9 @@ window.onload = function() {
       var animal = new Animal (newName, newWeight);
       animal.breed = newBreed.value;
       animal.species = document.getElementById('new-pet-form')['species'].value;
+      animal.ageCategory = $('select#animalAge').val();
+      animal.temperament.push($('select#animalSocial').val());
+      animal.temperament.push($('select#animalActivity').val());
       console.log(animal);
       petDB.createPet(animal, function(pet) {
         refreshPets();
