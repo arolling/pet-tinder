@@ -30,6 +30,7 @@ window.onload = function() {
       // Create the animal.
       var animal = new Animal (newName, newWeight);
       animal.breed = newBreed.value;
+
       console.log(animal);
       petDB.createPet(animal, function(pet) {
         refreshPets();
@@ -67,8 +68,8 @@ function refreshPets() {
 
       var span = document.createElement('span');
       //span.innerHTML = pet.petName + pet.weight;
-      span.innerHTML = pet.animalObject.animalName + pet.animalObject.animalWeight;
-      // BUG - FAILED TO ADD BREED TO DISPLAY~!!!!!!
+      span.innerHTML = pet.animalObject.animalName + " " + pet.animalObject.animalWeight + " " + pet.animalObject.breed;
+
       li.appendChild(span);
 
       petList.appendChild(li);
