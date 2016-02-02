@@ -9,26 +9,37 @@
  //var humans = [];
  human.animalType.push("Cat");
  human.animalType.push("Lizard");
- human.activeDocile = 'Active';
+ //human.activeDocile = 'Active';
  //humans.push(human);
  //console.log(humans);
  //end test object
 
 var filterResults = function(pets, human) { // expects pets array, human object
   var remainingAnimals = [];
+  var speciesMatch = [];
+  var activityMatch = [];
   //console.log(pets);
 
   for (var i=0; i < pets.length; i++) {
     console.log(pets[i].animalObject.species);
     for (var j=0; j < human.animalType.length; j++) {
-      if (pets[i].animalObject.species === human.animalType[j]){
-        remainingAnimals.push(pets[i]);
+      var thisPet = pets[i].animalObject;
+      if (thisPet.species === human.animalType[j]){
+        speciesMatch.push(pets[i]);
       }
     }
   }
 
-  //console.log(pets);
-  return remainingAnimals;
+  for (var i=0; i < speciesMatch.length; i++) {
+    var thisPet = speciesMatch[i].animalObject;
+    if (human.activeDocile === '' || thisPet.activity === human.activeDocile || thisPet.activity === '') {
+      activityMatch.push(speciesMatch[i]);
+    }
+  }
+
+
+  console.log(activityMatch);
+  return pets;
 }
 
 window.onload = function() {
@@ -54,8 +65,8 @@ window.onload = function() {
       animal.breed = newBreed.value;
       animal.species = document.getElementById('new-pet-form')['species'].value;
       animal.ageCategory = $('select#animalAge').val();
-      animal.temperament.push($('select#animalSocial').val());
-      animal.temperament.push($('select#animalActivity').val());
+      animal.social = $('select#animalSocial').val();
+      animal.activity = $('select#animalActivity').val();
       animal.profilePic = newPic.value;
       console.log(animal);
       petDB.createPet(animal, function(pet) {
@@ -95,7 +106,7 @@ function refreshPets() {
 
       var span = document.createElement('span');
       var image = document.createElement('img');
-      span.innerHTML = pet.animalObject.animalName + "<br>" + pet.animalObject.animalWeight + "<br>" + pet.animalObject.species + "<br>" + pet.animalObject.breed + "<br>" + pet.animalObject.ageCategory + "<br>" + pet.animalObject.temperament + "<br>";
+      span.innerHTML = pet.animalObject.animalName + "<br>" + pet.animalObject.animalWeight + "<br>" + pet.animalObject.species + "<br>" + pet.animalObject.breed + "<br>" + pet.animalObject.ageCategory + "<br>" + pet.animalObject.social + "<br>" + pet.animalObject.activity + "<br>";
       image.setAttribute('src', pet.animalObject.profilePic);
 
       li.appendChild(span);
