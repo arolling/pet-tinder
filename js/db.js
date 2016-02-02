@@ -87,8 +87,9 @@ var petDB = (function() {
 
       // Create an object for the todo item.
       var pet = {
-        'petName': animal.animalName,
-        'weight': animal.animalWeight,
+        // 'petName': animal.animalName,
+        // 'weight': animal.animalWeight,
+        'animalObject': animal,
         'timestamp': timestamp
       };
 

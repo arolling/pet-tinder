@@ -36,7 +36,7 @@ window.onload = function() {
 //    var text = newTodoInput.value;
   testButton.onclick = function(){
     console.log(newPetWeight);
-    var animal = new Animal (newPetName.value, 10);
+    var animal = new Animal (newPetName.value, newPetWeight.value);
     console.log(animal);
     // Check to make sure the text is not blank (or just spaces).
 
@@ -75,8 +75,8 @@ function refreshPets() {
       li.appendChild(checkbox);
 
       var span = document.createElement('span');
-      span.innerHTML = pet.petName + pet.weight;
-
+      //span.innerHTML = pet.petName + pet.weight;
+      span.innerHTML = pet.animalObject.animalName + pet.animalObject.animalWeight;
       li.appendChild(span);
 
       petList.appendChild(li);
