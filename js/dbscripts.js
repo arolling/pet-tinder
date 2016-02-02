@@ -9,7 +9,13 @@
  //var humans = [];
  human.animalType.push("Cat");
  human.animalType.push("Lizard");
+ human.animalType.push("Mouse");
+ human.animalType.push('Snake');
+ human.animalType.push("Rabbit");
+ human.animalType.push("Dog");
  //human.activeDocile = 'Active';
+ human.introvertedExtroverted = "";
+ human.budget = 20;
  //humans.push(human);
  //console.log(humans);
  //end test object
@@ -18,6 +24,8 @@ var filterResults = function(pets, human) { // expects pets array, human object
   var remainingAnimals = [];
   var speciesMatch = [];
   var activityMatch = [];
+  var personalityMatch = [];
+  var budgetMatch = [];
   //console.log(pets);
 
   for (var i=0; i < pets.length; i++) {
@@ -37,9 +45,37 @@ var filterResults = function(pets, human) { // expects pets array, human object
     }
   }
 
+  for (var i=0; i < activityMatch.length; i++) {
+    var thisPet = activityMatch[i].animalObject;
+    if (human.introvertedExtroverted === '' || thisPet.social === human.introvertedExtroverted || thisPet.social === '') {
+      personalityMatch.push(activityMatch[i]);
+    }
+  }
 
-  console.log(activityMatch);
-  return pets;
+  for (var i=0; i < personalityMatch.length; i++) {
+    var thisPet = personalityMatch[i].animalObject;
+    if (matchBudget(thisPet, human) === true) {
+      budgetMatch.push(personalityMatch[i]);
+    }
+  }
+  //console.log(activityMatch);
+  return budgetMatch;
+}
+
+var matchBudget = function(animal,human) {
+  if (human.budget === 100) {
+    return true;
+  } else if (human.budget >= 80 && animal.animalWeight <= 80) {
+    return true;
+  } else if (human.budget >= 60 && animal.animalWeight <= 50 && animal.ageCategory != "Senior") {
+    return true;
+  } else if (human.budget >= 40 && animal.animalWeight <= 25 && (animal.ageCategory === "Young" || animal.ageCategory === "Adult")) {
+    return true;
+  } else if (human.budget >= 20 && animal.animalWeight <= 10 && (animal.ageCategory === "Young" || animal.ageCategory === "Adult")) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 window.onload = function() {
