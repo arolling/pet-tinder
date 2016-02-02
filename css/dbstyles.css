@@ -56,3 +56,8 @@ input[type="checkbox"] {
 .radiotext {
 	color: white;
 }
+
+img {
+	max-width: 300px;
+
+}

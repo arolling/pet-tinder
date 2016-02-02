@@ -4,9 +4,6 @@
  * @license MIT {@link http://opensource.org/licenses/MIT}.
  */
 
-// function getRadioValue(radioName) {
-//   for (var i=0; i<)
-// }
 
 window.onload = function() {
 
@@ -18,15 +15,12 @@ window.onload = function() {
   var newPetName = document.getElementById('new-pet');
   var newPetWeight = document.getElementById('new-weight');
   var newBreed = document.getElementById('new-breed');
-  // Age Category - radio buttons
-
-  //temperament - docile/active, introvert/extrovert (pick 2)
+  var newPic = document.getElementById('new-pic');
   //profile pic - file url?
   // Handle new pet submissions.
   testButton.onclick = function(){
     var newName = newPetName.value;
     var newWeight = newPetWeight.value;
-
     // Check to make sure the text is not blank (or just spaces).
     if ((newName.replace(/ /g,'') != '') || (newWeight.replace(/ /g,'') != '')) {
       // Create the animal.
@@ -36,6 +30,7 @@ window.onload = function() {
       animal.ageCategory = $('select#animalAge').val();
       animal.temperament.push($('select#animalSocial').val());
       animal.temperament.push($('select#animalActivity').val());
+      animal.profilePic = newPic.value;
       console.log(animal);
       petDB.createPet(animal, function(pet) {
         refreshPets();
@@ -72,10 +67,13 @@ function refreshPets() {
       li.appendChild(checkbox);
 
       var span = document.createElement('span');
-      //span.innerHTML = pet.petName + pet.weight;
-      span.innerHTML = pet.animalObject.animalName + " " + pet.animalObject.animalWeight + " " + pet.animalObject.species + " " + pet.animalObject.breed;
+      var image = document.createElement('img');
+      span.innerHTML = pet.animalObject.animalName + "<br>" + pet.animalObject.animalWeight + "<br>" + pet.animalObject.species + "<br>" + pet.animalObject.breed + "<br>" + pet.animalObject.ageCategory + "<br>" + pet.animalObject.temperament + "<br>";
+      image.setAttribute('src', pet.animalObject.profilePic);
+
 
       li.appendChild(span);
+      li.appendChild(image);
 
       petList.appendChild(li);
 
