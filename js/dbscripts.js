@@ -93,9 +93,9 @@ window.onload = function() {
   //console.log(humans);
   //end test object
 
-  // Display the todo items.
+  // Display the items.
   petDB.open(refreshPets);
-  //petDB.open(matchPets(human));
+
 
   // // Get references to the form elements.
   var newPetForm = document.getElementById('new-pet-form');
@@ -124,7 +124,7 @@ window.onload = function() {
       console.log(animal);
       petDB.createPet(animal, function(pet) {
         refreshPets();
-        matchPets(human);
+        //matchPets(human);
       });
       newPetName.value = '';
       newPetWeight.value = '';
@@ -189,7 +189,7 @@ function matchPets(human) {
 
     var petList = document.getElementById('filtered-items');
     petList.innerHTML = '';
-    console.log(pets);
+    console.log(human);
     var filteredPets = filterResults(pets, human); //returns an array of animal objects that match criteria
     for(var i = 0; i < filteredPets.length; i++) {
       // Read the array items backwards (most recent first).

@@ -25,7 +25,7 @@ $(document).ready(function() {
     $("input:checkbox.species").prop("checked", true);
     event.preventDefault();
   });
-  
+
   $("#uncheckAll").click(function(event) {
     $("input:checkbox.species").prop("checked", false);
     event.preventDefault();
@@ -52,8 +52,10 @@ $(document).ready(function() {
       alert("Please select the type of animal or  you'd like to adopt!");
     }
     else {
+      console.log(newPerson);
       $("#results").show();
       $("#search-form").hide();
+      matchPets(newPerson);
     }
   });
 
