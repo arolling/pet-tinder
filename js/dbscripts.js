@@ -14,7 +14,7 @@
  human.animalType.push("Rabbit");
  human.animalType.push("Dog");
  //human.activeDocile = 'Active';
- human.introvertedExtroverted = "";
+ human.introvertedExtroverted = "Friendly";
  human.budget = 20;
  //humans.push(human);
  //console.log(humans);
