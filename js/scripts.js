@@ -41,17 +41,23 @@ $(document).ready(function() {
     });
 
     var introvertedExtroverted = $("input[name=introvertedExtroverted]:checked").val();
-    newPerson.introvertedExtroverted = introvertedExtroverted;
+    if (introvertedExtroverted) {
+      newPerson.introvertedExtroverted = introvertedExtroverted;
+    }
     var activeDocile = $("input[name=activeDocile]:checked").val();
-    newPerson.activeDocile = activeDocile;
+    if (activeDocile) {
+      newPerson.activeDocile = activeDocile;
+    }
     var budget = $("select#budget").val();
     newPerson.budget = parseInt(budget);
     if (newPerson.animalType.length === 0){
       alert("Please select the type of animal or  you'd like to adopt!");
     }
     else {
+      console.log(newPerson);
       $("#results").show();
       $("#search-form").hide();
+      matchPets(newPerson);
     }
   });
 
