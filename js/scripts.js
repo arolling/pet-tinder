@@ -57,6 +57,7 @@ $(document).ready(function() {
       console.log(newPerson);
       $("#results").show();
       $("#search-form").hide();
+
       matchPets(newPerson);
     }
   });

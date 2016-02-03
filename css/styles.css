@@ -8,12 +8,12 @@ body, html {
 body {
 	font-family: Helvetica, Arial, sans-serif;
 	color: #545454;
-	background-repeat: repeat;
-	background-color: #ededed;
+	/*background-color: #F7F7F7;*/
 }
 
 img {
 	max-width: 300px;
+	border-radius: 15px;
 }
 #filtered-items {
 	list-style: none;
@@ -21,15 +21,24 @@ img {
 	margin: 0;
 }
 
+ul {
+	min-height: 500px;
+}
+
 #filtered-items li {
+	display: inline-block;
+	text-align: center;
 	font-size: 0.9em;
 	padding: 0.5em;
-	border-bottom: 1px solid #EEE;
+	border: 1px solid #EEE;
 	margin: 0.5em 0;
+	height: 500px;
+	width: 315px;
+	vertical-align: bottom;
 }
 
 .background-img {
-	background-image: url("../images/desertdog.jpg");
+	background-image: url("../img/desertdog.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	padding-top: 50px;
@@ -40,22 +49,29 @@ img {
 #results {
 	padding-top: 50px;
 	padding-bottom: 100px;
-	min-height: 1000px;
 }
 
-#results-background {
-	background-image: url("../images/square-s.png");
+body {
+	background-image: url("../img/square-s.png");
 	background-size: auto;
 	background-repeat: repeat;
 	background-color: #009bc2;
-	padding-top: 50px;
 	padding-bottom: 50px;
+	min-height: 100px;
 }
 /*background-image: url("../images/desertdog.jpg");
 background-repeat: no-repeat;*/
 
-.container {
+.main-container {
 	max-width: 600px;
+	background-color: #fff;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-radius: 7px;
+}
+
+.result-container {
+	max-width: 1005px;
 	background-color: #fff;
 	padding-top: 20px;
 	padding-bottom: 20px;
@@ -84,14 +100,14 @@ input[type="checkbox"] {
 	display: none;
 }
 
-#main-header {
+.main-header {
 	text-align: center;
 	padding-bottom: 10px;
 	color: #fff;
 
 }
 
-#main-header h1 {
+.main-header h1 {
 	font-size: 6em;
 	color: #fff;
 	opacity: .7;
@@ -108,4 +124,5 @@ label {
 .footer {
 	text-align: center;
 	color: #fff;
+	padding-top: 15px;
 }
