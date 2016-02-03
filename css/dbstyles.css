@@ -51,6 +51,7 @@ input[type="text"], input[type="url"] {
 
 #animalProfiles {
 	margin-top: 10px;
+	max-width: 800px;
 }
 
 #pet-items {

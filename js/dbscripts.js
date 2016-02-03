@@ -79,6 +79,17 @@ var matchBudget = function(animal,human) {
   }
 }
 
+function showProps(obj, objName) {
+  var result = "";
+  for (var i in obj) {
+    if (obj.hasOwnProperty(i)) {
+        result += obj[i] + "<br>";
+    }
+  }
+  console.log(result);
+  return result;
+}
+
 window.onload = function() {
 
   // Display the todo items.
@@ -115,11 +126,12 @@ window.onload = function() {
       newPetName.value = '';
       newPetWeight.value = '';
       newBreed.value = '';
+      // Reset the input field.
     }
     else {
       alert ("Please enter the animal's name and or weight before adding to the database");
     }
-    // Reset the input field.
+
 
 
     // Don't send the form.
@@ -149,7 +161,9 @@ function refreshPets() {
 
       var span = document.createElement('span');
       var image = document.createElement('img');
-      span.innerHTML = pet.animalObject.animalName + "<br>" + pet.animalObject.animalWeight + "<br>" + pet.animalObject.species + "<br>" + pet.animalObject.breed + "<br>" + pet.animalObject.ageCategory + "<br>" + pet.animalObject.social + "<br>" + pet.animalObject.activity + "<br>";
+      var petProps = showProps(pet.animalObject, 'pet.animalObject');
+      span.innerHTML = petProps;
+
       image.setAttribute('src', pet.animalObject.profilePic);
 
       li.appendChild(span);
@@ -163,8 +177,6 @@ function refreshPets() {
 
         petDB.deletePet(id, refreshPets);
       });
-
     }
-
   });
 }
