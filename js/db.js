@@ -129,9 +129,3 @@ var petDB = (function() {
   return pDB;
 
 }()); // end database
-
-// request.onerror = function(event) {
-//   console.log('error');
-// }
-// request.onerror = pDB.onerror;
-// return version;

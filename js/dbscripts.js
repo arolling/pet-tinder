@@ -13,9 +13,10 @@
  human.animalType.push('Snake');
  human.animalType.push("Rabbit");
  human.animalType.push("Dog");
+ human.animalType.push('Hamster');
  //human.activeDocile = 'Active';
- human.introvertedExtroverted = "Friendly";
- human.budget = 20;
+ human.introvertedExtroverted = "";
+ human.budget = 100;
  //humans.push(human);
  //console.log(humans);
  //end test object
@@ -29,7 +30,7 @@ var filterResults = function(pets, human) { // expects pets array, human object
   //console.log(pets);
 
   for (var i=0; i < pets.length; i++) {
-    console.log(pets[i].animalObject.species);
+    //console.log(pets[i].animalObject.species);
     for (var j=0; j < human.animalType.length; j++) {
       var thisPet = pets[i].animalObject;
       if (thisPet.species === human.animalType[j]){
@@ -94,13 +95,16 @@ window.onload = function() {
   addButton.onclick = function(){
     var newName = newPetName.value;
     var newWeight = newPetWeight.value;
+    var newAge = $('select#animalAge').val();
+    var newSpecies = document.getElementById('new-pet-form')['species'].value;
+
     // Check to make sure the text is not blank (or just spaces).
-    if ((newName.replace(/ /g,'') != '') || (newWeight.replace(/ /g,'') != '')) {
+    if ((newName.replace(/ /g,'') != '') && (newWeight.replace(/ /g,'') != '')) {
       // Create the animal.
       var animal = new Animal (newName, newWeight);
       animal.breed = newBreed.value;
-      animal.species = document.getElementById('new-pet-form')['species'].value;
-      animal.ageCategory = $('select#animalAge').val();
+      animal.species = newSpecies;
+      animal.ageCategory = newAge;
       animal.social = $('select#animalSocial').val();
       animal.activity = $('select#animalActivity').val();
       animal.profilePic = newPic.value;
@@ -111,6 +115,9 @@ window.onload = function() {
       newPetName.value = '';
       newPetWeight.value = '';
       newBreed.value = '';
+    }
+    else {
+      alert ("Please enter the animal's name and or weight before adding to the database");
     }
     // Reset the input field.
 
