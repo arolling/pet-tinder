@@ -167,11 +167,17 @@ function refreshPets() {
       // Read the array items backwards (most recent first).
       var pet = pets[(pets.length - 1 - i)];
       var li = document.createElement('li');
-      var button = document.createElement('button');
-      button.type = "button";
-      button.className = "pet-delete-button btn btn-danger";
-      button.setAttribute("data-id", pet.timestamp);
-      button.innerHTML = "Delete";
+      var deleteButton = document.createElement('button');
+      deleteButton.type = "button";
+      deleteButton.className = "pet-delete-button btn btn-danger";
+      deleteButton.setAttribute("data-id", pet.timestamp);
+      deleteButton.innerHTML = "Delete";
+
+      var editButton = document.createElement('button');
+      editButton.type = "button";
+      editButton.className = "pet-edit-button btn btn-info";
+      editButton.setAttribute("data-id", pet.timestamp);
+      editButton.innerHTML = "Edit";
 
       var span = document.createElement('span');
       var image = document.createElement('img');
@@ -182,11 +188,12 @@ function refreshPets() {
 
       li.appendChild(span);
       li.appendChild(image);
-      li.appendChild(button);
+      li.appendChild(deleteButton);
+      li.appendChild(editButton);
       petList.appendChild(li);
 
-      // Setup an event listener for the checkbox.
-      button.addEventListener('click', function(e) {
+      // Setup an event listener for the delete button.
+      deleteButton.addEventListener('click', function(e) {
         var id = parseInt(e.target.getAttribute('data-id'));
         var deleteConfirm = confirm("Are you sure you want to delete this entry?");
         if (deleteConfirm === true){
@@ -195,11 +202,18 @@ function refreshPets() {
         else {
           alert("The entry has not been deleted");
         }
+      });
 
+      editButton.addEventListener('click', function(e) {
+        var id = parseInt(e.target.getAttribute('data-id'));
+        var petToEdit = petDB.editPet(id, refreshPets);
       });
     }
   });
 }
+
+
+
 
 function matchPets(human) {
   petDB.fetchPets(function(pets) {
