@@ -9,7 +9,7 @@ body {
 	font-family: Helvetica, Arial, sans-serif;
 	color: #545454;
 	background-repeat: repeat;
-	background: #F7F7F7;
+	background-color: #ededed;
 }
 
 .background-img {
@@ -21,6 +21,23 @@ body {
 	min-height: 1000px;
 }
 
+#results {
+	padding-top: 50px;
+	padding-bottom: 100px;
+	min-height: 1000px;
+}
+
+#results-background {
+	background-image: url("../images/square-s.png");
+	background-size: auto;
+	background-repeat: repeat;
+	background-color: #009bc2;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+/*background-image: url("../images/desertdog.jpg");
+background-repeat: no-repeat;*/
+
 .container {
 	max-width: 600px;
 	background-color: #fff;
@@ -29,14 +46,13 @@ body {
 	border-radius: 7px;
 }
 
-input[type="text"] {
+input[type="text"], input[type="url"] {
 	width: 100%;
 	padding: 0.5em;
 	font-size: 1em;
-	border: 0;
-	margin-bottom: 10px;
 	border-radius: 3px;
 	border: 1px solid #f0f0f5;
+	margin-bottom: 10px;
 }
 
 input[type="checkbox"] {
@@ -71,4 +87,9 @@ label {
 
 #budget, .radio-inline {
 	font-size: 1.1em;
+}
+
+.footer {
+	text-align: center;
+	color: #fff;
 }
