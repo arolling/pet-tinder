@@ -1,7 +1,6 @@
-function Person(firstName, lastName, age) {
+function Person(firstName, lastName) {
   this.firstName = firstName;
   this.lastName = lastName;
-  this.age = age;
   this.animalType = [];
   this.budget = "";
   this.introvertedExtroverted = "";
@@ -25,7 +24,7 @@ $(document).ready(function() {
     $("input:checkbox.species").prop("checked", true);
     event.preventDefault();
   });
-  
+
   $("#uncheckAll").click(function(event) {
     $("input:checkbox.species").prop("checked", false);
     event.preventDefault();
@@ -35,8 +34,7 @@ $(document).ready(function() {
     event.preventDefault();
     var inputtedFirstName = $("input#firstName").val();
     var inputtedLastName = $("input#lastName").val();
-    var inputtedAge = $("input#age").val();
-    var newPerson = new Person(inputtedFirstName, inputtedLastName, inputtedAge);
+    var newPerson = new Person(inputtedFirstName, inputtedLastName);
 
     var animalType = $("input:checkbox:checked.species").map(function(){
       newPerson.animalType.push((this).value);
@@ -68,8 +66,8 @@ $(document).ready(function() {
     $("input#firstName").val('');
     $("input#lastName").val('');
     $("input:checkbox:checked.species").removeAttr("checked");
-    $("input#inlineRadio1").prop("checked", true);
-    $("input#inlineRadio3").prop("checked", true);
+    $("input[name=introvertedExtroverted]").attr("checked", false);
+    $("input[name=activeDocile]").attr("checked", false);
     $("select#budget").val('20')
   });
 });

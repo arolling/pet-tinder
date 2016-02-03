@@ -5,17 +5,18 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.12.0.js"></script>
-    <script src="js/db.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/dbscripts.js"></script>
     <title>Pet Finder</title>
   </head>
   <body>
-    <div class="background-img">
+    <div class="background-img" id="search-form">
       <div id="main-header">
         <h1>Adopt-a-Pet</h1>
         <h3>Adopt a Pet | List a Pet</h3>
       </div>
-      <div class="container" id="search-form">
+      <div class="container">
         <form id = "newPerson">
           <div class="form-group">
             <h3>Enter your information to get started:</h3>
@@ -68,14 +69,14 @@
           <hr>
           <h4>Would you like your new pet to be more extroverted or introverted?</h4>
           <label class="radio-inline">
-            <input type="radio" name="introvertedExtroverted" id="inlineRadio1" checked value="Friendly">Friendly
+            <input type="radio" name="introvertedExtroverted" id="inlineRadio1" value="Friendly">Friendly
           </label>
           <label class="radio-inline">
             <input type="radio" name="introvertedExtroverted" id="inlineRadio2" value="Independent">Independent
           </label>
           <h4>Would you like your new pet to be more active or docile?</h4>
           <label class="radio-inline">
-            <input type="radio" name="activeDocile" id="inlineRadio3" checked value="Active"> Active
+            <input type="radio" name="activeDocile" id="inlineRadio3" value="Active"> Active
           </label>
           <label class="radio-inline">
             <input type="radio" name="activeDocile" id="inlineRadio4" value="Docile"> Docile
@@ -84,16 +85,23 @@
           <button class="btn btn-info" type="submit">Submit</button>
         </form>
       </div>
-      <div class="container" id="results">
-        <div id="post-search">
-          <button class="btn btn-primary" id="revise-search">Revise Search</button>
-          <button class="btn btn-danger" id="new-search">New Search</button>
-        </div>
-        <div id="search-results">
-          Pet matches go here
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          <span class="test"> </span>
-        </div>
+    </div>
+    <div class="container" id="results">
+      <div id="post-search">
+        <button class="btn btn-primary" id="revise-search">Revise Search</button>
+        <button class="btn btn-danger" id="new-search">New Search</button>
+      </div>
+      <div id="search-results">
+        Pet matches go here
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <ul id="filter-items"> </ul>
       </div>
     </div>
   </body>

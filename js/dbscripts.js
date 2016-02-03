@@ -122,7 +122,7 @@ window.onload = function() {
 
 }
 
-// Update the list of todo items.
+// Display filtered pet results
 function refreshPets() {
   petDB.fetchPets(function(pets) {
 
