@@ -13,9 +13,10 @@
  human.animalType.push('Snake');
  human.animalType.push("Rabbit");
  human.animalType.push("Dog");
+ human.animalType.push("Hamster");
  //human.activeDocile = 'Active';
- human.introvertedExtroverted = "Friendly";
- human.budget = 20;
+ human.introvertedExtroverted = "";
+ human.budget = 100;
  //humans.push(human);
  //console.log(humans);
  //end test object
