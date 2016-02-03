@@ -169,10 +169,11 @@ function refreshPets() {
       var li = document.createElement('li');
       var button = document.createElement('button');
       button.type = "button";
-      button.className = "pet-delete-button";
+      button.className = "pet-delete-button btn btn-danger";
       button.setAttribute("data-id", pet.timestamp);
 
-      li.appendChild(button);
+      button.innerHTML = "Delete";
+
 
       var span = document.createElement('span');
       var image = document.createElement('img');
@@ -183,7 +184,7 @@ function refreshPets() {
 
       li.appendChild(span);
       li.appendChild(image);
-
+      li.appendChild(button);
       petList.appendChild(li);
 
       // Setup an event listener for the checkbox.
