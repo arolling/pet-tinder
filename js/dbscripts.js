@@ -211,12 +211,10 @@ function matchPets(human) {
       // Read the array items backwards (most recent first).
       var pet = filteredPets[i];
       var li = document.createElement('li');
-      var checkbox = document.createElement('input');
-      checkbox.type = "checkbox";
-      checkbox.className = "pet-checkbox";
-      checkbox.setAttribute("data-id", pet.timestamp);
-
-      li.appendChild(checkbox);
+      li.setAttribute("data-id", pet.timestamp);
+      // var checkbox = document.createElement('input');
+      // checkbox.type = "checkbox";
+      // checkbox.className = "pet-checkbox";
 
       var span = document.createElement('span');
       var image = document.createElement('img');
@@ -231,11 +229,11 @@ function matchPets(human) {
       petList.appendChild(li);
 
       // Setup an event listener for the checkbox.
-      checkbox.addEventListener('click', function(e) {
-        var id = parseInt(e.target.getAttribute('data-id'));
-
-        petDB.deletePet(id, refreshPets);
-      });
+      // checkbox.addEventListener('click', function(e) {
+      //   var id = parseInt(e.target.getAttribute('data-id'));
+      //
+      //   petDB.deletePet(id, refreshPets);
+      // });
     }
   });
 }
