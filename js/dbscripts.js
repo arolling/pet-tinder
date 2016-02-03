@@ -4,6 +4,22 @@
  * @license MIT {@link http://opensource.org/licenses/MIT}.
  */
 
+ // person object for testing
+ var human = new Person('Bob', 'Smith', 55);
+ //var humans = [];
+ human.animalType.push("Cat");
+ human.animalType.push("Lizard");
+ human.animalType.push("Mouse");
+ human.animalType.push('Snake');
+ human.animalType.push("Rabbit");
+ human.animalType.push("Dog");
+ human.animalType.push("Hamster");
+ //human.activeDocile = 'Active';
+ human.introvertedExtroverted = "";
+ human.budget = 100;
+ //humans.push(human);
+ //console.log(humans);
+ //end test object
 
 
 var filterResults = function(pets, human) { // expects pets array, human object
