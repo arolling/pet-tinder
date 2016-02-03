@@ -171,9 +171,7 @@ function refreshPets() {
       button.type = "button";
       button.className = "pet-delete-button btn btn-danger";
       button.setAttribute("data-id", pet.timestamp);
-
       button.innerHTML = "Delete";
-
 
       var span = document.createElement('span');
       var image = document.createElement('img');
@@ -190,8 +188,14 @@ function refreshPets() {
       // Setup an event listener for the checkbox.
       button.addEventListener('click', function(e) {
         var id = parseInt(e.target.getAttribute('data-id'));
+        var deleteConfirm = confirm("Are you sure you want to delete this entry?");
+        if (deleteConfirm === true){
+          petDB.deletePet(id, refreshPets);
+        }
+        else {
+          alert("The entry has not been deleted");
+        }
 
-        petDB.deletePet(id, refreshPets);
       });
     }
   });
