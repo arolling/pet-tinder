@@ -5,18 +5,18 @@
  */
 
  // person object for testing
- var human = new Person('Bob', 'Smith', 55);
- //var humans = [];
- human.animalType.push("Cat");
- human.animalType.push("Lizard");
- human.animalType.push("Mouse");
- human.animalType.push('Snake');
- human.animalType.push("Rabbit");
- human.animalType.push("Dog");
- human.animalType.push("Hamster");
- //human.activeDocile = 'Active';
- human.introvertedExtroverted = "";
- human.budget = 100;
+ // var human = new Person('Bob', 'Smith', 55);
+ // //var humans = [];
+ // human.animalType.push("Cat");
+ // human.animalType.push("Lizard");
+ // human.animalType.push("Mouse");
+ // human.animalType.push('Snake');
+ // human.animalType.push("Rabbit");
+ // human.animalType.push("Dog");
+ // human.animalType.push("Hamster");
+ // //human.activeDocile = 'Active';
+ // human.introvertedExtroverted = "";
+ // human.budget = 100;
  //humans.push(human);
  //console.log(humans);
  //end test object
@@ -28,7 +28,7 @@ var filterResults = function(pets, human) { // expects pets array, human object
   var activityMatch = [];
   var personalityMatch = [];
   var budgetMatch = [];
-  //console.log(pets);
+  console.log(human, pets);
 
   for (var i=0; i < pets.length; i++) {
     //console.log(pets[i].animalObject.species);
@@ -39,21 +39,21 @@ var filterResults = function(pets, human) { // expects pets array, human object
       }
     }
   }
-
+  console.log(speciesMatch);
   for (var i=0; i < speciesMatch.length; i++) {
     var thisPet = speciesMatch[i].animalObject;
     if (human.activeDocile === '' || thisPet.activity === human.activeDocile || thisPet.activity === '') {
       activityMatch.push(speciesMatch[i]);
     }
   }
-
+  console.log(activityMatch);
   for (var i=0; i < activityMatch.length; i++) {
     var thisPet = activityMatch[i].animalObject;
     if (human.introvertedExtroverted === '' || thisPet.social === human.introvertedExtroverted || thisPet.social === '') {
       personalityMatch.push(activityMatch[i]);
     }
   }
-
+  console.log(speciesMatch);
   for (var i=0; i < personalityMatch.length; i++) {
     var thisPet = personalityMatch[i].animalObject;
     if (matchBudget(thisPet, human) === true) {
@@ -93,18 +93,18 @@ function showProps(obj, objName) {
 
 window.onload = function() {
   // person object for testing
-  var human = new Person('Bob', 'Smith', 55);
-  //var humans = [];
-  human.animalType.push("Cat");
-  human.animalType.push("Lizard");
-  human.animalType.push("Mouse");
-  human.animalType.push('Snake');
-  human.animalType.push("Rabbit");
-  //human.animalType.push("Dog");
-  human.animalType.push('Hamster');
-  //human.activeDocile = 'Active';
-  human.introvertedExtroverted = "";
-  human.budget = 100;
+  // var human = new Person('Bob', 'Smith', 55);
+  // //var humans = [];
+  // human.animalType.push("Cat");
+  // human.animalType.push("Lizard");
+  // human.animalType.push("Mouse");
+  // human.animalType.push('Snake');
+  // human.animalType.push("Rabbit");
+  // //human.animalType.push("Dog");
+  // human.animalType.push('Hamster');
+  // //human.activeDocile = 'Active';
+  // human.introvertedExtroverted = "";
+  // human.budget = 100;
   //humans.push(human);
   //console.log(humans);
   //end test object
@@ -159,7 +159,7 @@ window.onload = function() {
 
 }
 
-// Update the list of todo items.
+// Display filtered pet results
 function refreshPets() {
   petDB.fetchPets(function(pets) {
 

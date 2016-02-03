@@ -9,20 +9,15 @@ body {
 	font-family: Helvetica, Arial, sans-serif;
 	color: #545454;
 	background: #F7F7F7;
+}
+
+.database-background {
 	background-image: url("../images/snow.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	padding-top: 50px;
 	padding-bottom: 100px;
 	min-height: 1000px;
-}
-
-#page-wrapper {
-  width: 600px;
-  margin: 2.5em auto;
-  background: #FFF;
-  /*box-shadow: 0 1px 3px rgba(0,0,0,0.2);*/
-  border-radius: 3px;
 }
 
 .container {
@@ -39,15 +34,6 @@ body {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }*/
-
-input[type="text"], input[type="url"] {
-	width: 100%;
-	padding: 0.5em;
-	font-size: 1em;
-	border-radius: 3px;
-	border: 1px solid #f0f0f5;
-	margin-bottom: 10px;
-}
 
 #animalProfiles {
 	margin-top: 10px;
