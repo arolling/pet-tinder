@@ -6,8 +6,8 @@
   <title>Animal Database Entry</title>
   <script src="js/jquery-1.12.0.js"></script>
   <script src="js/db.js"></script>
-  <script src="js/scripts.js"></script>
   <script src="js/dbscripts.js"></script>
+  <script src="js/scripts.js"></script>
   <link rel="stylesheet" href="css/dbstyles.css">
 </head>
 <body>
@@ -21,13 +21,13 @@
       <hr>
       <h4>Select the animal's species:</h4>
       <label class="radio-inline">
+        <input type="radio" name="species" value="Cat" checked>Cat
+      </label>
+      <label class="radio-inline">
         <input type="radio" name="species" value="Rabbit">Rabbit
       </label>
       <label class="radio-inline">
         <input type="radio" name="species" value="Hamster">Hamster
-      </label>
-      <label class="radio-inline">
-        <input type="radio" name="species" value="Cat">Cat
       </label>
       <label class="radio-inline">
         <input type="radio" name="species" value="Dog">Dog
@@ -46,7 +46,6 @@
       <hr>
       <h4>Select the animal's age group</h4>
       <select id="animalAge" name="animalAge" class="form-control">
-        <option value=""></option>
         <option value="Baby">Baby</option>
         <option value="Young">Young</option>
         <option value="Adult">Adult</option>
@@ -74,7 +73,9 @@
   </div>
   <div class="container" id="animalProfiles">
     <ul id="pet-items"></ul>
-  </div>    <!-- Todo Item List -->
+
+
+  </div>    <!-- Full Pet Item List -->
 
 
 
