@@ -6,7 +6,6 @@ function Person(firstName, lastName, age) {
   this.budget = "";
   this.introvertedExtroverted = "";
   this.activeDocile = "";
-  // this.personalityHuman = "";
 }
 
 function Animal(animalName, animalWeight){
@@ -20,7 +19,18 @@ function Animal(animalName, animalWeight){
 }
 
 $(document).ready(function() {
-  $("form#newPerson"). submit(function(event){
+
+  $("#checkAll").click(function(event) {
+    $("input:checkbox.species").prop("checked", true);
+    event.preventDefault();
+  });
+  
+  $("#uncheckAll").click(function(event) {
+    $("input:checkbox.species").prop("checked", false);
+    event.preventDefault();
+  });
+
+  $("form#newPerson").submit(function(event){
     event.preventDefault();
     var inputtedFirstName = $("input#firstName").val();
     var inputtedLastName = $("input#lastName").val();
@@ -36,10 +46,29 @@ $(document).ready(function() {
     var activeDocile = $("input[name=activeDocile]:checked").val();
     newPerson.activeDocile = activeDocile;
     var budget = $("select#budget").val();
-    newPerson.budget = budget;
-    console.log(newPerson);
-
+    newPerson.budget = parseInt(budget);
+    if (newPerson.animalType.length === 0){
+      alert("Please select the type of animal or  you'd like to adopt!");
+    }
+    else {
+      $("#results").show();
+      $("#search-form").hide();
+    }
   });
 
+  $("#revise-search").click(function(event){
+    $("#search-form").show();
+    $("#results").hide();
+  });
 
+  $("#new-search").click(function(event){
+    $("#search-form").show();
+    $("#results").hide();
+    $("input#firstName").val('');
+    $("input#lastName").val('');
+    $("input:checkbox:checked.species").removeAttr("checked");
+    $("input#inlineRadio1").prop("checked", true);
+    $("input#inlineRadio3").prop("checked", true);
+    $("select#budget").val('20')
+  });
 });
