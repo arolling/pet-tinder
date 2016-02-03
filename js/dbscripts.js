@@ -150,13 +150,9 @@ window.onload = function() {
     else {
       alert ("Please enter the animal's name and or weight before adding to the database");
     }
-
-
-
     // Don't send the form.
   return false;
   };
-
 }
 
 // Update the list of todo items.
@@ -171,12 +167,12 @@ function refreshPets() {
       // Read the array items backwards (most recent first).
       var pet = pets[(pets.length - 1 - i)];
       var li = document.createElement('li');
-      var checkbox = document.createElement('input');
-      checkbox.type = "checkbox";
-      checkbox.className = "pet-checkbox";
-      checkbox.setAttribute("data-id", pet.timestamp);
+      var button = document.createElement('button');
+      button.type = "button";
+      button.className = "pet-delete-button";
+      button.setAttribute("data-id", pet.timestamp);
 
-      li.appendChild(checkbox);
+      li.appendChild(button);
 
       var span = document.createElement('span');
       var image = document.createElement('img');
@@ -191,7 +187,7 @@ function refreshPets() {
       petList.appendChild(li);
 
       // Setup an event listener for the checkbox.
-      checkbox.addEventListener('click', function(e) {
+      button.addEventListener('click', function(e) {
         var id = parseInt(e.target.getAttribute('data-id'));
 
         petDB.deletePet(id, refreshPets);
