@@ -67,7 +67,7 @@ var matchBudget = function(animal,human) {
 function showProps(obj, objName) {
   var result = "";
   for (var i in obj) {
-    if (obj.hasOwnProperty(i)) {
+    if (obj.hasOwnProperty(i) && i != 'profilePic') {
         result += obj[i] + "<br>";
     }
   }
