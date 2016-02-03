@@ -61,7 +61,7 @@ var petDB = (function() {
       }
 
       pets.push(result.value);
-      console.log(pets);
+      //console.log(pets);
       result.continue();
     };
 

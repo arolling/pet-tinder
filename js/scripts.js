@@ -14,7 +14,8 @@ function Animal(animalName, animalWeight){
   this.ageCategory = "";
   this.species = "";
   this.breed = "";
-  this.temperament = [];
+  this.social = "";
+  this.activity = "";
   this.profilePic = "";
 }
 
