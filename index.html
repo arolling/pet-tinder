@@ -8,15 +8,19 @@
     <script src="js/scripts.js"></script>
     <script src="js/db.js"></script>
     <script src="js/dbscripts.js"></script>
+
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script> -->
     <title>Pet Finder</title>
   </head>
   <body>
     <div class="background-img" id="search-form">
-      <div id="main-header">
+      <div class="main-header">
         <h1>Adopt-a-Pet</h1>
         <h3>Adopt a Pet | List a Pet</h3>
       </div>
-      <div class="container">
+      <div class="container main-container">
         <form id = "newPerson">
           <div class="form-group">
             <h3>Enter your information to get started:</h3>
@@ -86,8 +90,12 @@
         </form>
       </div>
     </div>
-    <div id="results-background">
-      <div class="container" id="results">
+    <div id="results">
+      <div class="main-header">
+        <h1>Adopt-a-Pet</h1>
+        <h3>Adopt a Pet | List a Pet</h3>
+      </div>
+      <div class="container result-container">
         <div id="post-search">
           <button class="btn btn-primary" id="revise-search">Revise Search</button>
           <button class="btn btn-danger" id="new-search">New Search</button>
@@ -96,9 +104,9 @@
           <ul id="filtered-items"></ul>
         </div>
       </div>
-      <div class="footer">
-        Created by Brad London, Abby Rolling, Daren Schaad, and Jess Guilford for Epicodus.
-      </div>
+    </div>
+    <div class="footer">
+      Created by Brad London, Abby Rolling, Daren Schaad, and Jess Guilford for Epicodus.
     </div>
   </body>
 </html>

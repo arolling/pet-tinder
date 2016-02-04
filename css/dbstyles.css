@@ -12,7 +12,7 @@ body {
 }
 
 .database-background {
-	background-image: url("../images/snow.jpg");
+	background-image: url("../img/dogwaiting.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	padding-top: 50px;
@@ -68,4 +68,5 @@ label {
 
 img {
 	max-width: 300px;
+	border-radius: 15px;
 }
