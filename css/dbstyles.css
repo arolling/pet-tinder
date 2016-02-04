@@ -21,7 +21,6 @@ body {
 }
 
 .container {
-	max-width: 600px;
 	background-color: #fff;
 	padding-top: 20px;
 	padding-bottom: 20px;
@@ -34,6 +33,10 @@ body {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }*/
+
+.pet-form {
+	max-width: 600px;
+}
 
 #animalProfiles {
 	margin-top: 10px;

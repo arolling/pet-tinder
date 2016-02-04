@@ -6,7 +6,7 @@
 
 
 var filterResults = function(pets, human) { // expects pets array, human object
-  var remainingAnimals = [];
+  //var remainingAnimals = [];
   var speciesMatch = [];
   var activityMatch = [];
   var personalityMatch = [];
@@ -113,6 +113,7 @@ window.onload = function() {
       petDB.createPet(animal, function(pet) {
         refreshPets();
       });
+      matchHumans(animal);
       newPetName.value = '';
       newPetWeight.value = '';
       newBreed.value = '';
@@ -126,7 +127,7 @@ window.onload = function() {
   };
 }
 
-// Display filtered pet results
+// Display All pet results
 function refreshPets() {
   petDB.fetchPets(function(pets) {
 

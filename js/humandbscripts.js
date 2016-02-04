@@ -5,41 +5,41 @@
  */
 
 
-var filterResults = function(pets, human) { // expects pets array, human object
-  var remainingAnimals = [];
+var filterHumanResults = function(humans, pet) { // expects humans array, pet object
+  //var remainingHumans = [];
   var speciesMatch = [];
   var activityMatch = [];
   var personalityMatch = [];
   var budgetMatch = [];
-  console.log(human, pets);
+  console.log(humans, pet);
 
-  for (var i=0; i < pets.length; i++) {
-    //console.log(pets[i].animalObject.species);
-    for (var j=0; j < human.animalType.length; j++) {
-      var thisPet = pets[i].animalObject;
-      if (thisPet.species === human.animalType[j]){
-        speciesMatch.push(pets[i]);
+  for (var i=0; i < humans.length; i++) {
+    console.log(humans[i].personObject.animalType);
+    for (var j=0; j < humans[i].personObject.animalType.length; j++) {
+      if (pet.species === humans[i].personObject.animalType[j]){
+        speciesMatch.push(humans[i]);
       }
     }
   }
   console.log(speciesMatch);
   for (var i=0; i < speciesMatch.length; i++) {
-    var thisPet = speciesMatch[i].animalObject;
-    if (human.activeDocile === '' || thisPet.activity === human.activeDocile || thisPet.activity === '') {
+    var thisHuman = speciesMatch[i].personObject;
+    console.log(thisHuman);
+    if (thisHuman.activeDocile === '' || pet.activity === thisHuman.activeDocile || pet.activity === '') {
       activityMatch.push(speciesMatch[i]);
     }
   }
   console.log(activityMatch);
   for (var i=0; i < activityMatch.length; i++) {
-    var thisPet = activityMatch[i].animalObject;
-    if (human.introvertedExtroverted === '' || thisPet.social === human.introvertedExtroverted || thisPet.social === '') {
+    var thisHuman = activityMatch[i].personObject;
+    if (thisHuman.introvertedExtroverted === '' || pet.social === thisHuman.introvertedExtroverted || pet.social === '') {
       personalityMatch.push(activityMatch[i]);
     }
   }
-  console.log(speciesMatch);
+  console.log(personalityMatch);
   for (var i=0; i < personalityMatch.length; i++) {
-    var thisPet = personalityMatch[i].animalObject;
-    if (matchBudget(thisPet, human) === true) {
+    var thisHuman = personalityMatch[i].personObject;
+    if (matchBudget(thisHuman, pet) === true) {
       budgetMatch.push(personalityMatch[i]);
     }
   }
@@ -47,7 +47,7 @@ var filterResults = function(pets, human) { // expects pets array, human object
   return budgetMatch;
 }
 
-var matchBudget = function(animal,human) {
+var matchBudget = function(human, animal) {
   if (human.budget === 100) {
     return true;
   } else if (human.budget >= 80 && animal.animalWeight <= 80) {
@@ -74,61 +74,6 @@ function showProps(obj, objName) {
   return result;
 }
 
-// window.onload = function() {
-//
-//   // Display the items.
-//   humanDB.open(refreshHumans);
-//
-//
-//   // // Get references to the form elements.
-//   var newPersonForm = document.getElementById('newPerson');
-//   var newFirstName = document.getElementById('firstName');
-//   var newLastName = document.getElementById('lastName');
-//
-//
-//   // Handle new human submissions.
-//   addHumanButton.onclick = function(){
-//     var newPersonFirstName = newFirstName.value;
-//     var newSurname = newLastName.value;
-//     var newBudget = $('select#budget').val();
-//     var newIntroExtro = document.getElementById('newPerson')['introvertedExtroverted'].value;
-//     var newActivity = document.getElementById('newPerson')['activeDocile'].value;
-//
-//     // Check to make sure the text is not blank (or just spaces).
-//     if ((newName.replace(/ /g,'') != '') && (newWeight.replace(/ /g,'') != '')) {
-//       // Create the person.
-//       var person = new Person (newPersonFirstName, newSurname);
-//       var animalType = $("input:checkbox:checked.species").map(function(){
-//         person.animalType.push((this).value);
-//       });
-//
-//       animal.breed = newBreed.value;
-//       animal.species = newSpecies;
-//       animal.ageCategory = newAge;
-//       animal.social = $('select#animalSocial').val();
-//       animal.activity = $('select#animalActivity').val();
-//       animal.profilePic = $("input#new-pic").val();
-//         if (animal.profilePic === '') {
-//           animal.profilePic = "img/default.jpg";
-//         } else {
-//       animal.profilePic = $("input#new-pic").val();
-//         }
-//       console.log(animal);
-//       humanDB.createPet(animal, function(human) {
-//         refreshHumans();
-//       });
-//       newPetName.value = '';
-//       newPetWeight.value = '';
-//       newBreed.value = '';
-//       // Reset the input field.
-//     }
-//     else {
-//       alert ("Please enter the animal's name and or weight before adding to the database");
-//     }
-//     // Don't send the form.
-//   return false;
-//   };
-// }
 
 // Display full human results
 function refreshHumans() {
@@ -155,14 +100,10 @@ function refreshHumans() {
       editButton.innerHTML = "Edit";
 
       var span = document.createElement('span');
-      //var image = document.createElement('img');
       var humanProps = showProps(human.personObject, 'human.personObject');
       span.innerHTML = humanProps;
 
-      //image.setAttribute('src', human.personObject.profilePic);
-
       li.appendChild(span);
-      //li.appendChild(image);
       li.appendChild(deleteButton);
       li.appendChild(editButton);
       humanList.appendChild(li);
@@ -198,13 +139,13 @@ function refreshHumans() {
   });
 }
 
-function matchHumans(human) {
+function matchHumans(pet) {
   humanDB.fetchHumans(function(humans) {
 
-    var humanList = document.getElementById('filtered-items');
+    var humanList = document.getElementById('filtered-human-items');
     humanList.innerHTML = '';
-    console.log(human);
-    var filteredHumans = filterResults(humans, human); //returns an array of person objects that match criteria
+    console.log(pet);
+    var filteredHumans = filterHumanResults(humans, pet); //returns an array of person objects that match criteria
     for(var i = 0; i < filteredHumans.length; i++) {
 
       var human = filteredHumans[i];
@@ -212,17 +153,13 @@ function matchHumans(human) {
       li.setAttribute("data-id", human.timestamp);
 
       var span = document.createElement('span');
-      var image = document.createElement('img');
+
       var humanProps = showProps(human.personObject, 'human.personObject');
       span.innerHTML = humanProps;
 
-      image.setAttribute('src', human.personObject.profilePic);
-
       li.appendChild(span);
-      li.appendChild(image);
 
       humanList.appendChild(li);
-
     }
   });
 }
