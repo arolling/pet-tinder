@@ -118,7 +118,7 @@ window.onload = function() {
   var newPetName = document.getElementById('new-pet');
   var newPetWeight = document.getElementById('new-weight');
   var newBreed = document.getElementById('new-breed');
-  var newPic = document.getElementById('new-pic');
+  //var newPic = document.getElementById('new-pic');
   //profile pic - file url?
   // Handle new pet submissions.
   addButton.onclick = function(){
@@ -136,7 +136,12 @@ window.onload = function() {
       animal.ageCategory = newAge;
       animal.social = $('select#animalSocial').val();
       animal.activity = $('select#animalActivity').val();
-      animal.profilePic = newPic.value;
+      animal.profilePic = $("input#new-pic").val();
+        if (animal.profilePic === '') {
+          animal.profilePic = "img/default.jpg";
+        } else {
+      animal.profilePic = $("input#new-pic").val();
+        }
       console.log(animal);
       petDB.createPet(animal, function(pet) {
         refreshPets();
@@ -211,12 +216,10 @@ function matchPets(human) {
       // Read the array items backwards (most recent first).
       var pet = filteredPets[i];
       var li = document.createElement('li');
-      var checkbox = document.createElement('input');
-      checkbox.type = "checkbox";
-      checkbox.className = "pet-checkbox";
-      checkbox.setAttribute("data-id", pet.timestamp);
-
-      li.appendChild(checkbox);
+      li.setAttribute("data-id", pet.timestamp);
+      // var checkbox = document.createElement('input');
+      // checkbox.type = "checkbox";
+      // checkbox.className = "pet-checkbox";
 
       var span = document.createElement('span');
       var image = document.createElement('img');
@@ -231,11 +234,11 @@ function matchPets(human) {
       petList.appendChild(li);
 
       // Setup an event listener for the checkbox.
-      checkbox.addEventListener('click', function(e) {
-        var id = parseInt(e.target.getAttribute('data-id'));
-
-        petDB.deletePet(id, refreshPets);
-      });
+      // checkbox.addEventListener('click', function(e) {
+      //   var id = parseInt(e.target.getAttribute('data-id'));
+      //
+      //   petDB.deletePet(id, refreshPets);
+      // });
     }
   });
 }
