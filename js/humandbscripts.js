@@ -11,17 +11,15 @@ var filterHumanResults = function(humans, pet) { // expects humans array, pet ob
   var activityMatch = [];
   var personalityMatch = [];
   var budgetMatch = [];
-  console.log(humans, pet);
 
   for (var i=0; i < humans.length; i++) {
-    console.log(humans[i].personObject.animalType);
     for (var j=0; j < humans[i].personObject.animalType.length; j++) {
       if (pet.species === humans[i].personObject.animalType[j]){
         speciesMatch.push(humans[i]);
       }
     }
   }
-  console.log(speciesMatch);
+  //console.log(speciesMatch);
   for (var i=0; i < speciesMatch.length; i++) {
     var thisHuman = speciesMatch[i].personObject;
     console.log(thisHuman);
@@ -29,14 +27,14 @@ var filterHumanResults = function(humans, pet) { // expects humans array, pet ob
       activityMatch.push(speciesMatch[i]);
     }
   }
-  console.log(activityMatch);
+  //console.log(activityMatch);
   for (var i=0; i < activityMatch.length; i++) {
     var thisHuman = activityMatch[i].personObject;
     if (thisHuman.introvertedExtroverted === '' || pet.social === thisHuman.introvertedExtroverted || pet.social === '') {
       personalityMatch.push(activityMatch[i]);
     }
   }
-  console.log(personalityMatch);
+  //console.log(personalityMatch);
   for (var i=0; i < personalityMatch.length; i++) {
     var thisHuman = personalityMatch[i].personObject;
     if (matchHumanBudget(thisHuman, pet) === true) {
@@ -120,21 +118,29 @@ function refreshHumans() {
         }
       });
 
-      // editButton.addEventListener('click', function(e) {
-      //   var id = parseInt(e.target.getAttribute('data-id'));
-      //   humanDB.editHuman(id, function(humanToEdit) {
-      //     console.log(humanToEdit.personObject.species);
-      //     $("input#new-human").val(humanToEdit.personObject.personName);
-      //     $("#new-weight").val(humanToEdit.personObject.personWeight);
-      //     $("input#" + humanToEdit.personObject.species).prop('checked', true);
-      //     $("#new-breed").val(humanToEdit.personObject.breed);
-      //     $("#animalAge").val(humanToEdit.personObject.ageCategory);
-      //     $("#animalSocial").val(humanToEdit.personObject.social);
-      //     $("#animalActivity").val(humanToEdit.personObject.activity);
-      //     $("#new-pic").val(humanToEdit.personObject.profilePic);
-      //     humanDB.deleteHuman(id, refreshHumans);
-      //   });
-      // });
+      editButton.addEventListener('click', function(e) {
+        var id = parseInt(e.target.getAttribute('data-id'));
+        humanDB.editHuman(id, function(humanToEdit) {
+          console.log(humanToEdit.personObject.firstName);
+          $("input#firstName").val(humanToEdit.personObject.firstName);
+          $("input#lastName").val(humanToEdit.personObject.lastName);
+          humanToEdit.personObject.animalType.forEach(function(type){
+            if (type != ''){
+              $('input[value=' + type + ']').prop('checked', true);
+            }
+          });
+          if (humanToEdit.personObject.introvertedExtroverted != ''){
+            $('input[value=' + humanToEdit.personObject.introvertedExtroverted + ']').prop('checked', true);
+          }
+          if (humanToEdit.personObject.activeDocile != ''){
+            $('input[value=' + humanToEdit.personObject.activeDocile + ']').prop('checked', true);
+          }
+          $("#budget").val(humanToEdit.personObject.budget);
+          $("#results").hide();
+          $("#search-form").show();
+          humanDB.deleteHuman(id, refreshHumans);
+        });
+      });
     }
   });
 }

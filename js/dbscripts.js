@@ -36,7 +36,7 @@ var filterResults = function(pets, human) { // expects pets array, human object
       personalityMatch.push(activityMatch[i]);
     }
   }
-  console.log(personalityMatch);
+  
   for (var i=0; i < personalityMatch.length; i++) {
     var thisPet = personalityMatch[i].animalObject;
     if (matchBudget(thisPet, human) === true) {
@@ -48,8 +48,6 @@ var filterResults = function(pets, human) { // expects pets array, human object
 }
 
 var matchBudget = function(animal,human) {
-  console.log(animal,human)
-  //animal.animalWeight = parseInt(animal.animalWeight);
   if (human.budget === 100) {
     return true;
   } else if (human.budget >= 80 && animal.animalWeight <= 80) {
