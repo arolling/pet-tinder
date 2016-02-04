@@ -36,7 +36,7 @@ var filterResults = function(pets, human) { // expects pets array, human object
       personalityMatch.push(activityMatch[i]);
     }
   }
-  console.log(personalityMatch);
+
   for (var i=0; i < personalityMatch.length; i++) {
     var thisPet = personalityMatch[i].animalObject;
     if (matchBudget(thisPet, human) === true) {
@@ -48,8 +48,6 @@ var filterResults = function(pets, human) { // expects pets array, human object
 }
 
 var matchBudget = function(animal,human) {
-  console.log(animal,human)
-  //animal.animalWeight = parseInt(animal.animalWeight);
   if (human.budget === 100) {
     return true;
   } else if (human.budget >= 80 && animal.animalWeight <= 80) {
@@ -128,6 +126,35 @@ window.onload = function() {
     // Don't send the form.
   return false;
   };
+
+  favoritesbutton.onclick = function() {
+    var favArray = [];
+    var favList = document.getElementById('allfavorites');
+
+    $(".glyphicon-star").each(function() {
+      var id = parseInt($(this).attr("data-id"));
+      favArray.push(id);
+      console.log(favArray)
+    });
+
+    for(var i = 0; i < favArray.length; i ++) {
+
+      petDB.editPet(favArray[i], function(petToEdit) {
+        var li = document.createElement('li');
+        var span = document.createElement('span');
+        var petProps = showProps(petToEdit.animalObject, 'petToEdit.animalObject');
+        var image = document.createElement('img');
+        image.setAttribute('src', petToEdit.animalObject.profilePic);
+        span.innerHTML = petProps;
+        li.appendChild(image);
+        li.appendChild(span);
+
+        favList.appendChild(li);
+
+      });
+    }
+    //$("#pet-items").find(".glyphicon-star").
+  };
 }
 
 // Display All pet results
@@ -155,16 +182,20 @@ function refreshPets() {
       editButton.innerHTML = "Edit";
 
       var span = document.createElement('span');
+      var favoriteSpan = document.createElement('span');
       var image = document.createElement('img');
       var petProps = showProps(pet.animalObject, 'pet.animalObject');
       span.innerHTML = petProps;
 
       image.setAttribute('src', pet.animalObject.profilePic);
+      favoriteSpan.className = "glyphicon glyphicon-star-empty";
+      favoriteSpan.setAttribute("data-id", pet.timestamp);
 
-      li.appendChild(span);
       li.appendChild(image);
+      li.appendChild(span);
       li.appendChild(deleteButton);
       li.appendChild(editButton);
+      li.appendChild(favoriteSpan);
       petList.appendChild(li);
 
       // Setup an event listener for the delete button.
@@ -193,6 +224,14 @@ function refreshPets() {
           $("#new-pic").val(petToEdit.animalObject.profilePic);
           petDB.deletePet(id, refreshPets);
         });
+      });
+
+      favoriteSpan.addEventListener('click', function(e) {
+        if (this.className === "glyphicon glyphicon-star-empty") {
+          this.className = "glyphicon glyphicon-star";
+        } else if (this.className === "glyphicon glyphicon-star") {
+          this.className = "glyphicon glyphicon-star-empty";
+        }
       });
     }
   });
