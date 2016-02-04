@@ -118,7 +118,7 @@ window.onload = function() {
   var newPetName = document.getElementById('new-pet');
   var newPetWeight = document.getElementById('new-weight');
   var newBreed = document.getElementById('new-breed');
-  var newPic = document.getElementById('new-pic');
+  //var newPic = document.getElementById('new-pic');
   //profile pic - file url?
   // Handle new pet submissions.
   addButton.onclick = function(){
@@ -136,7 +136,12 @@ window.onload = function() {
       animal.ageCategory = newAge;
       animal.social = $('select#animalSocial').val();
       animal.activity = $('select#animalActivity').val();
-      animal.profilePic = newPic.value;
+      animal.profilePic = $("input#new-pic").val();
+        if (animal.profilePic === '') {
+          animal.profilePic = "img/default.jpg";
+        } else {
+      animal.profilePic = $("input#new-pic").val();
+        }
       console.log(animal);
       petDB.createPet(animal, function(pet) {
         refreshPets();
