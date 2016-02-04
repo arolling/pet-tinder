@@ -14,7 +14,7 @@ img {
 	max-width: 300px;
 	border-radius: 15px;
 }
-#filtered-items, #full-items {
+#filtered-items, #full-items, #allfavorites {
 	list-style: none;
 	padding: 0.5em 1em;
 	margin: 0;
@@ -191,10 +191,17 @@ label {
 	margin: 0 auto -155px;
 }
 
+
 .pet-delete-button {
 	margin: 5px;
 }
 
 .pet-match-button {
 	margin: 5px;
+}
+
+.glyphicon {
+	font-size: 2em;
+	margin: 3px;
+	vertical-align: middle;
 }
