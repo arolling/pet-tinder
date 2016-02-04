@@ -7,9 +7,12 @@
   <script src="js/jquery-1.12.0.js"></script>
   <script src="js/scripts.js"></script>
   <script src="js/db.js"></script>
+  <script src="js/humandb.js"></script>
   <script src="js/dbscripts.js"></script>
+  <script src="js/humandbscripts.js"></script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <div class="database-background">
     <div class="main-header">
@@ -19,7 +22,8 @@
       <h2><a href="index.html">Adopt a Pet </a>| <a href="animal.html">List a Pet</a></h2>
     </div>
     <div class="container">
-      <!-- Form for new Todo Items -->
+
+      <!-- Form for new Pet Items -->
       <form id="new-pet-form" method="POST" action="#" class="form-group">
         <h4>Enter an animal name</h4>
         <input type="text" name="new-pet" id="new-pet" class="form-control"  required>
@@ -80,11 +84,23 @@
       <hr>
     </div>
   </div>
-  <div class="container" id="animalProfiles">
-    <ul id="pet-items"></ul> <!-- Full Pet Item List -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6" id="animalProfiles">
+        <ul id="pet-items"></ul> <!-- Full Pet Item List -->
+      </div>
+      <div class="col-md-6 text-center" id="humanProfiles">
+        <h3>Potential Adopters</h3>
+        <ul id="filtered-human-items"></ul> <!-- Filtered Human Item List -->
+      </div>
+
+    </div>
+
   </div>
+
   <div class="footer">
     Created by Brad London, Abby Rolling, Daren Schaad, and Jess Guilford for Epicodus. &copy; Bad J Inc.
   </div>
+
 </body>
 </html>

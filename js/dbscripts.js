@@ -4,26 +4,9 @@
  * @license MIT {@link http://opensource.org/licenses/MIT}.
  */
 
- // person object for testing
- // var human = new Person('Bob', 'Smith', 55);
- // //var humans = [];
- // human.animalType.push("Cat");
- // human.animalType.push("Lizard");
- // human.animalType.push("Mouse");
- // human.animalType.push('Snake');
- // human.animalType.push("Rabbit");
- // human.animalType.push("Dog");
- // human.animalType.push("Hamster");
- // //human.activeDocile = 'Active';
- // human.introvertedExtroverted = "";
- // human.budget = 100;
- //humans.push(human);
- //console.log(humans);
- //end test object
-
 
 var filterResults = function(pets, human) { // expects pets array, human object
-  var remainingAnimals = [];
+  //var remainingAnimals = [];
   var speciesMatch = [];
   var activityMatch = [];
   var personalityMatch = [];
@@ -39,32 +22,34 @@ var filterResults = function(pets, human) { // expects pets array, human object
       }
     }
   }
-  console.log(speciesMatch);
+
   for (var i=0; i < speciesMatch.length; i++) {
     var thisPet = speciesMatch[i].animalObject;
     if (human.activeDocile === '' || thisPet.activity === human.activeDocile || thisPet.activity === '') {
       activityMatch.push(speciesMatch[i]);
     }
   }
-  console.log(activityMatch);
+
   for (var i=0; i < activityMatch.length; i++) {
     var thisPet = activityMatch[i].animalObject;
     if (human.introvertedExtroverted === '' || thisPet.social === human.introvertedExtroverted || thisPet.social === '') {
       personalityMatch.push(activityMatch[i]);
     }
   }
-  console.log(speciesMatch);
+  console.log(personalityMatch);
   for (var i=0; i < personalityMatch.length; i++) {
     var thisPet = personalityMatch[i].animalObject;
     if (matchBudget(thisPet, human) === true) {
       budgetMatch.push(personalityMatch[i]);
     }
   }
-  //console.log(activityMatch);
+  console.log(budgetMatch);
   return budgetMatch;
 }
 
 var matchBudget = function(animal,human) {
+  console.log(animal,human)
+  //animal.animalWeight = parseInt(animal.animalWeight);
   if (human.budget === 100) {
     return true;
   } else if (human.budget >= 80 && animal.animalWeight <= 80) {
@@ -114,6 +99,7 @@ window.onload = function() {
     // Check to make sure the text is not blank (or just spaces).
     if ((newName.replace(/ /g,'') != '') && (newWeight.replace(/ /g,'') != '')) {
       // Create the animal.
+      newWeight = parseInt(newWeight);
       var animal = new Animal (newName, newWeight);
       animal.breed = newBreed.value;
       animal.species = newSpecies;
@@ -129,8 +115,8 @@ window.onload = function() {
       console.log(animal);
       petDB.createPet(animal, function(pet) {
         refreshPets();
-        //matchPets(human);
       });
+      matchHumans(animal);
       newPetName.value = '';
       newPetWeight.value = '';
       newBreed.value = '';
@@ -144,7 +130,7 @@ window.onload = function() {
   };
 }
 
-// Display filtered pet results
+// Display All pet results
 function refreshPets() {
   petDB.fetchPets(function(pets) {
 
@@ -212,37 +198,19 @@ function refreshPets() {
   });
 }
 
-// $('ul#pet-items').on('click', "button.pet-edit-button", function(event) {
-//   console.log('clicked');
-//   var id = parseInt(e.target.getAttribute('data-id'));
-//   petDB.editPet(id, function(petToEdit) {
-//
-//     console.log(petToEdit);
-
-    // $("#new-pet").text(petToEdit.animalObject.animalName);
-    // $("#new-weight").text(petToEdit.animalObject.animalWeight);
-    // $(".radio-inline#" + petToEdit.animalObject.species).prop('checked', true);
-    // $("#new-breed").text(petToEdit.animalObject.breed);
-    // $("#animalAge").val(petToEdit.animalObject.ageCategory);
-    //$()
-  // });
-// });
-
 function matchPets(human) {
   petDB.fetchPets(function(pets) {
 
     var petList = document.getElementById('filtered-items');
     petList.innerHTML = '';
-    console.log(human);
+
     var filteredPets = filterResults(pets, human); //returns an array of animal objects that match criteria
+    console.log(filteredPets);
     for(var i = 0; i < filteredPets.length; i++) {
-      // Read the array items backwards (most recent first).
+
       var pet = filteredPets[i];
       var li = document.createElement('li');
       li.setAttribute("data-id", pet.timestamp);
-      // var checkbox = document.createElement('input');
-      // checkbox.type = "checkbox";
-      // checkbox.className = "pet-checkbox";
 
       var span = document.createElement('span');
       var image = document.createElement('img');
@@ -256,12 +224,6 @@ function matchPets(human) {
 
       petList.appendChild(li);
 
-      // Setup an event listener for the checkbox.
-      // checkbox.addEventListener('click', function(e) {
-      //   var id = parseInt(e.target.getAttribute('data-id'));
-      //
-      //   petDB.deletePet(id, refreshPets);
-      // });
     }
   });
 }

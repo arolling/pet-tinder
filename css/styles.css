@@ -14,7 +14,7 @@ img {
 	max-width: 300px;
 	border-radius: 15px;
 }
-#filtered-items {
+#filtered-items, #full-items {
 	list-style: none;
 	padding: 0.5em 1em;
 	margin: 0;
@@ -24,7 +24,7 @@ ul {
 	min-height: 500px;
 }
 
-#filtered-items li {
+#filtered-items li, #full-items li {
 	display: inline-block;
 	text-align: center;
 	font-size: 0.9em;

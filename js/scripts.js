@@ -15,11 +15,11 @@ function Animal(animalName, animalWeight){
   this.breed = "";
   this.social = "";
   this.activity = "";
-  this.profilePic = "img/cat.jpeg";
+  this.profilePic = "";
 }
 
 $(document).ready(function() {
-
+  humanDB.open(refreshHumans);
   $("#checkAll").click(function(event) {
     $("input:checkbox.species").prop("checked", true);
     event.preventDefault();
@@ -55,10 +55,14 @@ $(document).ready(function() {
     }
     else {
       console.log(newPerson);
+      humanDB.createHuman(newPerson, function(human) {
+        refreshHumans();
+      });
+      matchPets(newPerson);
       $("#results").show();
       $("#search-form").hide();
 
-      matchPets(newPerson);
+
     }
   });
 
