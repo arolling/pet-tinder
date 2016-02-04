@@ -19,7 +19,7 @@ function Animal(animalName, animalWeight){
 }
 
 $(document).ready(function() {
-
+  humanDB.open(refreshHumans);
   $("#checkAll").click(function(event) {
     $("input:checkbox.species").prop("checked", true);
     event.preventDefault();
@@ -55,6 +55,9 @@ $(document).ready(function() {
     }
     else {
       console.log(newPerson);
+      humanDB.createHuman(newPerson, function(human) {
+        refreshHumans();
+      });
       $("#results").show();
       $("#search-form").hide();
 
