@@ -14,7 +14,7 @@ img {
 	max-width: 300px;
 	border-radius: 15px;
 }
-#filtered-items, #full-items, #allfavorites {
+#filtered-items, #full-items, #allfavorites, #filtered-human-items, #pet-items {
 	list-style: none;
 	padding: 0.5em 1em;
 	margin: 0;
@@ -24,7 +24,7 @@ ul {
 	min-height: 500px;
 }
 
-#filtered-items li, #full-items li {
+#filtered-items li, #full-items li, #allfavorites li, #filtered-human-items li, #pet-items li {
 	display: inline-block;
 	text-align: center;
 	font-size: 0.9em;
@@ -168,19 +168,6 @@ label {
 	margin-top: 10px;
 }
 
-#pet-items {
-	list-style: none;
-	padding: 0.5em 1em;
-	margin: 0;
-}
-
-#pet-items li {
-	font-size: 0.9em;
-	padding: 0.5em;
-	background: #FFF;
-	border-bottom: 1px solid #EEE;
-	margin: 0.5em 0;
-}
 
 .radiotext {
 	color: #545454;

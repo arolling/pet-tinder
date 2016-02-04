@@ -60,6 +60,8 @@ $(document).ready(function() {
       });
       matchPets(newPerson);
       $("#results").show();
+      $("#search-results").show();
+      $("#search-again").show();
       $("#search-form").hide();
     }
   });

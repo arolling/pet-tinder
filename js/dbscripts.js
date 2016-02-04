@@ -88,6 +88,13 @@ window.onload = function() {
   //var newPic = document.getElementById('new-pic');
   //profile pic - file url?
   // Handle new pet submissions.
+  allHumanButton.onclick = function(){
+    humanDB.open(refreshHumans);
+    $("#full-results").show();
+    $("#petEntryForm").hide();
+    return false;
+  }
+
   addButton.onclick = function(){
     var newName = newPetName.value;
     var newWeight = newPetWeight.value;

@@ -81,23 +81,19 @@
         <input class="form-control" type="url" name="new-pic" id='new-pic' placeholder='URL for picture'>
       </form>
       <button class="btn btn-primary" type="button" id="addButton" name="addButton">Add Animal</button>
+      <button class="btn btn-default" type="button" id="allHumanButton" name="allHumanButton">View all Adopters</button>
       <hr>
-    </div>
-
-
-
-    <div class="container result-container" id="animalProfiles">
-      <button class="btn btn-default" id="favoritesbutton">View Favorites</button>
-      <ul id="pet-items"></ul> <!-- Full Pet Item List -->
     </div>
     <div class="container result-container text-center" id="humanProfiles">
       <h3>Potential Adopters</h3>
+      <button class="btn btn-default" id="favoritesbutton">View Favorites</button>
       <ul id="filtered-human-items"></ul> <!-- Filtered Human Item List -->
     </div>
 
-    <div class="container result-container">
-      <ul id="allfavorites">
-      </ul>
+    <div class="container result-container" id="full-results">
+      <div>
+        <ul id="full-items"></ul>
+      </div>
     </div>
   </div>
   <div class="footer">
