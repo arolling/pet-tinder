@@ -1,24 +1,24 @@
-var petDB = (function() {
+var humanDB = (function() {
 
-  var pDB = {};
+  var hDB = {};
   var datastore = null;
 
-  pDB.open = function(callback) {
+  hDB.open = function(callback) {
     var version = 1;
-    var request = indexedDB.open('pets', version);
+    var request = indexedDB.open('humans', version);
 
     request.onupgradeneeded = function(e) {
       var db = e.target.result;
 
-      e.target.transaction.onerror = pDB.onerror;
+      e.target.transaction.onerror = hDB.onerror;
 
       // Delete the old datastore.
-      if (db.objectStoreNames.contains('pet')) {
-        db.deleteObjectStore('pet');
+      if (db.objectStoreNames.contains('human')) {
+        db.deleteObjectStore('human');
       }
 
       // Create a new datastore.
-      var store = db.createObjectStore('pet', {
+      var store = db.createObjectStore('human', {
         keyPath: 'timestamp'
       });
     };
@@ -29,7 +29,7 @@ var petDB = (function() {
       callback();
     };
 
-    request.onerror = pDB.onerror;
+    request.onerror = hDB.onerror;
   };
 
   /**
@@ -38,19 +38,19 @@ var petDB = (function() {
    *                            have been retrieved. Will be passed a param with
    *                            an array of the  items.
    */
-  pDB.fetchPets = function(callback) {
+  hDB.fetchHumans = function(callback) {
     var db = datastore;
-    var transaction = db.transaction(['pet'], 'readwrite');
-    var objStore = transaction.objectStore('pet');
+    var transaction = db.transaction(['human'], 'readwrite');
+    var objStore = transaction.objectStore('human');
 
     var keyRange = IDBKeyRange.lowerBound(0);
     var cursorRequest = objStore.openCursor(keyRange);
 
-    var pets = [];
+    var humans = [];
 
     transaction.oncomplete = function(e) {
       // Execute the callback function.
-      callback(pets);
+      callback(humans);
     };
 
     cursorRequest.onsuccess = function(e) {
@@ -60,60 +60,60 @@ var petDB = (function() {
         return;
       }
 
-      pets.push(result.value);
-      //console.log(pets);
+      humans.push(result.value);
+      //console.log(humans);
       result.continue();
     };
 
-    cursorRequest.onerror = pDB.onerror;
+    cursorRequest.onerror = hDB.onerror;
   };
 
   /**
      * Create a new  item.
      * @param {string} text The  item.
      */
-    pDB.createPet = function(animal, callback) {
+    hDB.createHuman = function(person, callback) {
       // Get a reference to the db.
       var db = datastore;
 
       // Initiate a new transaction.
-      var transaction = db.transaction(['pet'], 'readwrite');
+      var transaction = db.transaction(['human'], 'readwrite');
 
       // Get the datastore.
-      var objStore = transaction.objectStore('pet');
+      var objStore = transaction.objectStore('human');
 
       // Create a timestamp for the todo item.
       var timestamp = new Date().getTime();
 
       // Create an object for the todo item.
-      var pet = {
-        'animalObject': animal,
+      var human = {
+        'personObject': person,
         'timestamp': timestamp
       };
 
       // Create the datastore request.
-      var request = objStore.put(pet);
+      var request = objStore.put(human);
 
       // Handle a successful datastore put.
       request.onsuccess = function(e) {
         // Execute the callback function.
-        callback(pet);
+        callback(human);
       };
 
       // Handle errors.
-      request.onerror = pDB.onerror;
+      request.onerror = hDB.onerror;
     };
 
     /**
-   * Delete a pet item.
-   * @param {int} id The timestamp (id) of the pet item to be deleted.
+   * Delete a human item.
+   * @param {int} id The timestamp (id) of the human item to be deleted.
    * @param {function} callback A callback function that will be executed if the
    *                            delete is successful.
    */
-  pDB.deletePet = function(id, callback) {
+  hDB.deleteHuman = function(id, callback) {
     var db = datastore;
-    var transaction = db.transaction(['pet'], 'readwrite');
-    var objStore = transaction.objectStore('pet');
+    var transaction = db.transaction(['human'], 'readwrite');
+    var objStore = transaction.objectStore('human');
 
     var request = objStore.delete(id);
 
@@ -126,10 +126,10 @@ var petDB = (function() {
     }
   };
 
-  pDB.editPet = function(id, callback) {
+  hDB.editHuman = function(id, callback) {
     var db = datastore;
-    var transaction = db.transaction(['pet'], 'readwrite');
-    var objStore = transaction.objectStore('pet');
+    var transaction = db.transaction(['human'], 'readwrite');
+    var objStore = transaction.objectStore('human');
 
     var request = objStore.get(id);
 
@@ -144,7 +144,7 @@ var petDB = (function() {
     }
   };
 
-  // Export the pDB object.
-  return pDB;
+  // Export the hDB object.
+  return hDB;
 
 }()); // end database

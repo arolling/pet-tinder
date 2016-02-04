@@ -15,7 +15,7 @@ function Animal(animalName, animalWeight){
   this.breed = "";
   this.social = "";
   this.activity = "";
-  this.profilePic = "img/cat.jpeg";
+  this.profilePic = "";
 }
 
 $(document).ready(function() {
