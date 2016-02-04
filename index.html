@@ -15,98 +15,104 @@
     <title>Pet Finder</title>
   </head>
   <body>
-    <div class="background-img" id="search-form">
-      <div class="main-header">
-        <h1>Adopt-a-Pet</h1>
-        <h3>Adopt a Pet | List a Pet</h3>
-      </div>
-      <div class="container main-container">
-        <form id = "newPerson">
-          <div class="form-group">
-            <h3>Enter your information to get started:</h3>
-            <label>First Name</label>
-            <input type="text" class="form-control" id="firstName">
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" class="form-control" id="lastName">
-          </div>
-          <!-- <div class="form-group">
-            <label>Age</label>
-            <input type="number" class="form-control" id="age">
-          </div> -->
-          <hr>
-          <h4>Please select the type or types of pets you are looking to adopt:</h4>
-          <label class="checkbox-inline">
-            <input type="checkbox" class="species" value="Dog"> Dog
-          </label>
-          <label class="checkbox-inline">
-            <input type="checkbox" class="species" value="Cat"> Cat
-          </label>
-          <label class="checkbox-inline">
-            <input type="checkbox" class="species" value="Rabbit"> Rabbit
-          </label>
-          <label class="checkbox-inline">
-            <input type="checkbox" class="species" value="Hamster"> Hamster
-          </label>
-          <label class="checkbox-inline">
-            <input type="checkbox" class="species" value="Mouse"> Mouse
-          </label>
-          <label class="checkbox-inline">
-            <input type="checkbox" class="species" value="Snake"> Snake
-          </label>
-          <label class="checkbox-inline">
-            <input type="checkbox" class="species" value="Lizard"> Lizard
-          </label>
-          <br>
-          <button class="btn btn-warning" id="checkAll">Check all</button>
-          <button class="btn btn-danger" id="uncheckAll">Uncheck all</button>
-          <hr>
-          <h4>Please select your monthly budget for your new pet:</h4>
-          <select class="form-control" id="budget">
-            <option value="20">$20 or less</option>
-            <option value="40">$20 to $40</option>
-            <option value="60">$40 to $60</option>
-            <option value="80">$60 to $80</option>
-            <option value="100">I'm not worried about a budget</option>
-          </select>
-          <hr>
-          <h4>Would you like your new pet to be more extroverted or introverted?</h4>
-          <label class="radio-inline">
-            <input type="radio" name="introvertedExtroverted" id="inlineRadio1" value="Friendly">Friendly
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="introvertedExtroverted" id="inlineRadio2" value="Independent">Independent
-          </label>
-          <h4>Would you like your new pet to be more active or docile?</h4>
-          <label class="radio-inline">
-            <input type="radio" name="activeDocile" id="inlineRadio3" value="Active"> Active
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="activeDocile" id="inlineRadio4" value="Docile"> Docile
-          </label>
-          <hr>
-          <button class="btn btn-info" type="submit">Submit</button>
-        </form>
-      </div>
-    </div>
-    <div id="results">
-      <div class="main-header">
-        <h1>Adopt-a-Pet</h1>
-        <h3>Adopt a Pet | List a Pet</h3>
-      </div>
-      <div class="container result-container">
-        <div id="post-search">
-          <button class="btn btn-primary" id="revise-search">Revise Search</button>
-          <button class="btn btn-danger" id="new-search">New Search</button>
+    <div class="wrapper">
+      <div class="background-img" id="search-form">
+        <div class="main-header">
+          <h1>Adopt-a-Pet</h1>
         </div>
-        <div id="search-results">
-          <ul id="filtered-items"></ul>
+        <div class="index-links">
+          <h2><a href="index.html">Adopt a Pet </a>| <a href="animal.html">List a Pet</a></h2>
+        </div>
+        <div class="container main-container">
+          <form id = "newPerson">
+            <div class="form-group">
+              <h3>Enter your information to get started:</h3>
+              <label>First Name</label>
+              <input type="text" class="form-control" id="firstName">
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" class="form-control" id="lastName">
+            </div>
+            <!-- <div class="form-group">
+              <label>Age</label>
+              <input type="number" class="form-control" id="age">
+            </div> -->
+            <hr>
+            <h4>Please select the type or types of pets you are looking to adopt:</h4>
+            <label class="checkbox-inline">
+              <input type="checkbox" class="species" value="Dog"> Dog
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" class="species" value="Cat"> Cat
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" class="species" value="Rabbit"> Rabbit
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" class="species" value="Hamster"> Hamster
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" class="species" value="Mouse"> Mouse
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" class="species" value="Snake"> Snake
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" class="species" value="Lizard"> Lizard
+            </label>
+            <br>
+            <button class="btn btn-warning" id="checkAll">Check all</button>
+            <button class="btn btn-danger" id="uncheckAll">Uncheck all</button>
+            <hr>
+            <h4>Please select your monthly budget for your new pet:</h4>
+            <select class="form-control" id="budget">
+              <option value="20">$20 or less</option>
+              <option value="40">$20 to $40</option>
+              <option value="60">$40 to $60</option>
+              <option value="80">$60 to $80</option>
+              <option value="100">I'm not worried about a budget</option>
+            </select>
+            <hr>
+            <h4>Would you like your new pet to be more extroverted or introverted?</h4>
+            <label class="radio-inline">
+              <input type="radio" name="introvertedExtroverted" id="inlineRadio1" value="Friendly">Friendly
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="introvertedExtroverted" id="inlineRadio2" value="Independent">Independent
+            </label>
+            <h4>Would you like your new pet to be more active or docile?</h4>
+            <label class="radio-inline">
+              <input type="radio" name="activeDocile" id="inlineRadio3" value="Active"> Active
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="activeDocile" id="inlineRadio4" value="Docile"> Docile
+            </label>
+            <hr>
+            <button class="btn btn-info" type="submit">Submit</button>
+          </form>
         </div>
       </div>
-    </div>
-    <div class="footer">
-      Created by Brad London, Abby Rolling, Daren Schaad, and Jess Guilford for Epicodus.
+      <div id="results">
+        <div class="main-header">
+          <h1>Adopt-a-Pet</h1>
+        </div>
+        <div class="index-links">
+          <h2><a href="index.html">Adopt a Pet </a>| <a href="animal.html">List a Pet</a></h2>
+        </div>
+        <div class="container result-container">
+          <div id="post-search">
+            <button class="btn btn-primary" id="revise-search">Revise Search</button>
+            <button class="btn btn-danger" id="new-search">New Search</button>
+          </div>
+          <div id="search-results">
+            <ul id="filtered-items"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        Created by Brad London, Abby Rolling, Daren Schaad, and Jess Guilford for Epicodus. &copy; Bad J Inc.
+      </div>
     </div>
   </body>
 </html>
