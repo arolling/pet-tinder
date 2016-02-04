@@ -118,6 +118,11 @@ window.onload = function() {
       newPetName.value = '';
       newPetWeight.value = '';
       newBreed.value = '';
+      $("#Cat").prop("checked", true);
+      $("#animalAge").val('');
+      $("#animalSocial").val('');
+      $("#animalActivity").val('');
+      $("#new-pic").val('');
       // Reset the input field.
     }
     else {
@@ -181,9 +186,17 @@ function refreshPets() {
       editButton.setAttribute("data-id", pet.timestamp);
       editButton.innerHTML = "Edit";
 
+      var matchButton = document.createElement('button');
+      matchButton.type = "button";
+      matchButton.className = "pet-match-button btn btn-success";
+      matchButton.setAttribute("data-id", pet.timestamp);
+      matchButton.innerHTML = "Matches";
+
       var span = document.createElement('span');
       var favoriteSpan = document.createElement('span');
       var image = document.createElement('img');
+      var linebreak = document.createElement("br");
+      var linebreak2 = document.createElement("br");
       var petProps = showProps(pet.animalObject, 'pet.animalObject');
       span.innerHTML = petProps;
 
@@ -192,10 +205,16 @@ function refreshPets() {
       favoriteSpan.setAttribute("data-id", pet.timestamp);
 
       li.appendChild(image);
-      li.appendChild(span);
+
+      li.appendChild(linebreak);
       li.appendChild(deleteButton);
       li.appendChild(editButton);
+      li.appendChild(matchButton);
+      li.appendChild(linebreak2);
+      li.appendChild(span);
+
       li.appendChild(favoriteSpan);
+
       petList.appendChild(li);
 
       // Setup an event listener for the delete button.
@@ -223,6 +242,7 @@ function refreshPets() {
           $("#animalActivity").val(petToEdit.animalObject.activity);
           $("#new-pic").val(petToEdit.animalObject.profilePic);
           petDB.deletePet(id, refreshPets);
+          window.scrollTo(0,0);
         });
       });
 
