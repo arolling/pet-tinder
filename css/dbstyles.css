@@ -8,7 +8,6 @@ body, html {
 body {
 	font-family: Helvetica, Arial, sans-serif;
 	color: #545454;
-	background: #F7F7F7;
 }
 
 .database-background {
@@ -27,13 +26,6 @@ body {
 	padding-bottom: 20px;
 	border-radius: 7px;
 }
-
-/*#new-pet-form {
-	padding: 0.5em;
-	background: #fff;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}*/
 
 #animalProfiles {
 	margin-top: 10px;

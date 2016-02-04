@@ -8,7 +8,6 @@ body, html {
 body {
 	font-family: Helvetica, Arial, sans-serif;
 	color: #545454;
-	/*background-color: #F7F7F7;*/
 }
 
 img {
@@ -59,8 +58,6 @@ body {
 	padding-bottom: 50px;
 	min-height: 100px;
 }
-/*background-image: url("../images/desertdog.jpg");
-background-repeat: no-repeat;*/
 
 .main-container {
 	max-width: 600px;
@@ -111,6 +108,14 @@ input[type="checkbox"] {
 	font-size: 6em;
 	color: #fff;
 	opacity: .7;
+}
+
+.main-header h3 {
+	color: #603;
+}
+
+.main-header a {
+	color: #603;
 }
 
 label {
