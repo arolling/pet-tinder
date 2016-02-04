@@ -86,6 +86,7 @@ body {
 }
 
 .result-container {
+	display: none;
 	max-width: 1005px;
 	background-color: #fff;
 	padding-top: 20px;

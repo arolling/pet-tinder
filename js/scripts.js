@@ -61,8 +61,6 @@ $(document).ready(function() {
       matchPets(newPerson);
       $("#results").show();
       $("#search-form").hide();
-
-
     }
   });
 

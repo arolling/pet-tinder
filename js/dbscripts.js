@@ -115,6 +115,8 @@ window.onload = function() {
         refreshPets();
       });
       matchHumans(animal);
+      $("#humanProfiles").show();
+      $("#petEntryForm").hide();
       newPetName.value = '';
       newPetWeight.value = '';
       newBreed.value = '';
@@ -227,6 +229,14 @@ function refreshPets() {
         else {
           alert("The entry has not been deleted");
         }
+      });
+
+      matchButton.addEventListener('click', function(e) {
+        var id = parseInt(e.target.getAttribute('data-id'));
+        petDB.editPet(id, function(petToEdit) {
+          var pet = petToEdit.animalObject;
+          matchHumans(pet);
+        });
       });
 
       editButton.addEventListener('click', function(e) {
