@@ -58,10 +58,11 @@ $(document).ready(function() {
       humanDB.createHuman(newPerson, function(human) {
         refreshHumans();
       });
+      matchPets(newPerson);
       $("#results").show();
       $("#search-form").hide();
 
-      matchPets(newPerson);
+
     }
   });
 

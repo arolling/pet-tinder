@@ -39,7 +39,7 @@ var filterHumanResults = function(humans, pet) { // expects humans array, pet ob
   console.log(personalityMatch);
   for (var i=0; i < personalityMatch.length; i++) {
     var thisHuman = personalityMatch[i].personObject;
-    if (matchBudget(thisHuman, pet) === true) {
+    if (matchHumanBudget(thisHuman, pet) === true) {
       budgetMatch.push(personalityMatch[i]);
     }
   }
@@ -47,7 +47,7 @@ var filterHumanResults = function(humans, pet) { // expects humans array, pet ob
   return budgetMatch;
 }
 
-var matchBudget = function(human, animal) {
+var matchHumanBudget = function(human, animal) {
   if (human.budget === 100) {
     return true;
   } else if (human.budget >= 80 && animal.animalWeight <= 80) {

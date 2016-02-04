@@ -22,32 +22,34 @@ var filterResults = function(pets, human) { // expects pets array, human object
       }
     }
   }
-  console.log(speciesMatch);
+
   for (var i=0; i < speciesMatch.length; i++) {
     var thisPet = speciesMatch[i].animalObject;
     if (human.activeDocile === '' || thisPet.activity === human.activeDocile || thisPet.activity === '') {
       activityMatch.push(speciesMatch[i]);
     }
   }
-  console.log(activityMatch);
+
   for (var i=0; i < activityMatch.length; i++) {
     var thisPet = activityMatch[i].animalObject;
     if (human.introvertedExtroverted === '' || thisPet.social === human.introvertedExtroverted || thisPet.social === '') {
       personalityMatch.push(activityMatch[i]);
     }
   }
-  console.log(speciesMatch);
+  console.log(personalityMatch);
   for (var i=0; i < personalityMatch.length; i++) {
     var thisPet = personalityMatch[i].animalObject;
     if (matchBudget(thisPet, human) === true) {
       budgetMatch.push(personalityMatch[i]);
     }
   }
-  //console.log(activityMatch);
+  console.log(budgetMatch);
   return budgetMatch;
 }
 
 var matchBudget = function(animal,human) {
+  console.log(animal,human)
+  //animal.animalWeight = parseInt(animal.animalWeight);
   if (human.budget === 100) {
     return true;
   } else if (human.budget >= 80 && animal.animalWeight <= 80) {
@@ -97,6 +99,7 @@ window.onload = function() {
     // Check to make sure the text is not blank (or just spaces).
     if ((newName.replace(/ /g,'') != '') && (newWeight.replace(/ /g,'') != '')) {
       // Create the animal.
+      newWeight = parseInt(newWeight);
       var animal = new Animal (newName, newWeight);
       animal.breed = newBreed.value;
       animal.species = newSpecies;
@@ -200,8 +203,9 @@ function matchPets(human) {
 
     var petList = document.getElementById('filtered-items');
     petList.innerHTML = '';
-    console.log(human);
+
     var filteredPets = filterResults(pets, human); //returns an array of animal objects that match criteria
+    console.log(filteredPets);
     for(var i = 0; i < filteredPets.length; i++) {
 
       var pet = filteredPets[i];
