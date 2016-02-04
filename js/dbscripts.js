@@ -92,22 +92,6 @@ function showProps(obj, objName) {
 }
 
 window.onload = function() {
-  // person object for testing
-  // var human = new Person('Bob', 'Smith', 55);
-  // //var humans = [];
-  // human.animalType.push("Cat");
-  // human.animalType.push("Lizard");
-  // human.animalType.push("Mouse");
-  // human.animalType.push('Snake');
-  // human.animalType.push("Rabbit");
-  // //human.animalType.push("Dog");
-  // human.animalType.push('Hamster');
-  // //human.activeDocile = 'Active';
-  // human.introvertedExtroverted = "";
-  // human.budget = 100;
-  //humans.push(human);
-  //console.log(humans);
-  //end test object
 
   // Display the items.
   petDB.open(refreshPets);
@@ -155,13 +139,9 @@ window.onload = function() {
     else {
       alert ("Please enter the animal's name and or weight before adding to the database");
     }
-
-
-
     // Don't send the form.
   return false;
   };
-
 }
 
 // Display filtered pet results
@@ -176,12 +156,17 @@ function refreshPets() {
       // Read the array items backwards (most recent first).
       var pet = pets[(pets.length - 1 - i)];
       var li = document.createElement('li');
-      var checkbox = document.createElement('input');
-      checkbox.type = "checkbox";
-      checkbox.className = "pet-checkbox";
-      checkbox.setAttribute("data-id", pet.timestamp);
+      var deleteButton = document.createElement('button');
+      deleteButton.type = "button";
+      deleteButton.className = "pet-delete-button btn btn-danger";
+      deleteButton.setAttribute("data-id", pet.timestamp);
+      deleteButton.innerHTML = "Delete";
 
-      li.appendChild(checkbox);
+      var editButton = document.createElement('button');
+      editButton.type = "button";
+      editButton.className = "pet-edit-button btn btn-info";
+      editButton.setAttribute("data-id", pet.timestamp);
+      editButton.innerHTML = "Edit";
 
       var span = document.createElement('span');
       var image = document.createElement('img');
@@ -192,18 +177,56 @@ function refreshPets() {
 
       li.appendChild(span);
       li.appendChild(image);
-
+      li.appendChild(deleteButton);
+      li.appendChild(editButton);
       petList.appendChild(li);
 
-      // Setup an event listener for the checkbox.
-      checkbox.addEventListener('click', function(e) {
+      // Setup an event listener for the delete button.
+      deleteButton.addEventListener('click', function(e) {
         var id = parseInt(e.target.getAttribute('data-id'));
+        var deleteConfirm = confirm("Are you sure you want to delete this entry?");
+        if (deleteConfirm === true){
+          petDB.deletePet(id, refreshPets);
+        }
+        else {
+          alert("The entry has not been deleted");
+        }
+      });
 
-        petDB.deletePet(id, refreshPets);
+      editButton.addEventListener('click', function(e) {
+        var id = parseInt(e.target.getAttribute('data-id'));
+        petDB.editPet(id, function(petToEdit) {
+          console.log(petToEdit.animalObject.species);
+          $("input#new-pet").val(petToEdit.animalObject.animalName);
+          $("#new-weight").val(petToEdit.animalObject.animalWeight);
+          $("input#" + petToEdit.animalObject.species).prop('checked', true);
+          $("#new-breed").val(petToEdit.animalObject.breed);
+          $("#animalAge").val(petToEdit.animalObject.ageCategory);
+          $("#animalSocial").val(petToEdit.animalObject.social);
+          $("#animalActivity").val(petToEdit.animalObject.activity);
+          $("#new-pic").val(petToEdit.animalObject.profilePic);
+          petDB.deletePet(id, refreshPets);
+        });
       });
     }
   });
 }
+
+// $('ul#pet-items').on('click', "button.pet-edit-button", function(event) {
+//   console.log('clicked');
+//   var id = parseInt(e.target.getAttribute('data-id'));
+//   petDB.editPet(id, function(petToEdit) {
+//
+//     console.log(petToEdit);
+
+    // $("#new-pet").text(petToEdit.animalObject.animalName);
+    // $("#new-weight").text(petToEdit.animalObject.animalWeight);
+    // $(".radio-inline#" + petToEdit.animalObject.species).prop('checked', true);
+    // $("#new-breed").text(petToEdit.animalObject.breed);
+    // $("#animalAge").val(petToEdit.animalObject.ageCategory);
+    //$()
+  // });
+// });
 
 function matchPets(human) {
   petDB.fetchPets(function(pets) {

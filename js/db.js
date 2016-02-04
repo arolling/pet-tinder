@@ -125,7 +125,37 @@ var petDB = (function() {
       console.log(e);
     }
   };
+
+  pDB.editPet = function(id, callback) {
+    var db = datastore;
+    var transaction = db.transaction(['pet'], 'readwrite');
+    var objStore = transaction.objectStore('pet');
+
+    var request = objStore.get(id);
+    //console.log(request);
+    //debugger;
+    request.onerror = function(e) {
+      console.log(e);
+    }
+
+    // $.when(request).done(function() {
+    //   console.log(request.result);
+    // });
+    //console.log(request.result);
+
+
+    request.onsuccess = function(e) {
+      var result = request.result;
+      console.log(result);
+      callback(result);
+    }
+
+
+  };
+
   // Export the pDB object.
   return pDB;
+
+
 
 }()); // end database
