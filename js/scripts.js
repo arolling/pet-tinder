@@ -66,6 +66,14 @@ $(document).ready(function() {
     }
   });
 
+  $('#allPetsButton').click(function(event) {
+    event.preventDefault();
+    $("#search-form").hide();
+    $('#results').show();
+    $('#listAllAnimals').show();
+    $('#animalProfiles').show();
+  })
+
   $("#revise-search").click(function(event){
     $("#search-form").show();
     $("#results").hide();
