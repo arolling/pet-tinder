@@ -189,3 +189,9 @@ label {
 	height: 100%;
 	margin: 0 auto -155px;
 }
+
+.glyphicon {
+	font-size: 2em;
+	margin: 3px;
+	vertical-align: middle;
+}
