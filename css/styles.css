@@ -76,6 +76,7 @@ body {
 	border-radius: 7px;
 }
 
+
 .main-container {
 	max-width: 600px;
 	background-color: #fff;
@@ -188,4 +189,12 @@ label {
 	min-height: 100%;
 	height: 100%;
 	margin: 0 auto -155px;
+}
+
+.pet-delete-button {
+	margin: 5px;
+}
+
+.pet-match-button {
+	margin: 5px;
 }
