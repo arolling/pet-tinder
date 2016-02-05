@@ -12,10 +12,7 @@
     <script src="js/dbscripts.js"></script>
     <script src="js/humandbscripts.js"></script>
 
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script> -->
-    <title>Pet Finder</title>
+    <title>Pet Matcher</title>
   </head>
   <body>
     <div class="wrapper">
@@ -24,7 +21,7 @@
           <h1>Adopt-a-Pet</h1>
         </div>
         <div class="index-links">
-          <h2><a href="index.html">Adopt a Pet </a>| <a href="animal.html">List a Pet</a></h2>
+          <h2><a href="#" class='adopters'>Adopt a Pet </a>| <a href="#" class='orphans'>List a Pet</a></h2>
         </div>
         <div class="container main-container">
           <form id = "newPerson">
@@ -96,28 +93,114 @@
             <button class="btn btn-default" type="button" id="allPetsButton" name="allPetsButton">View all Animals</button>
           </form>
         </div>
-      </div>
+      </div> <!--  END ADD HUMAN/SEARCH PETS -->
+
+      <div class="database-background" id="petEntryForm">
+        <div class="main-header">
+          <h1>Adopt-a-Pet</h1>
+        </div>
+        <div class="animal-links">
+          <h2><a href="#" class="adopters">Adopt a Pet </a>| <a href="#" class="orphans">List a Pet</a></h2>
+        </div>
+        <div class="container" >
+          <!-- Form for new Pet Items -->
+          <form id="new-pet-form" class="form-group">
+            <h4>Enter an animal name</h4>
+            <input type="text" name="new-pet" id="new-pet" class="form-control"  required>
+            <h4>Weight in pounds</h4>
+            <input type="number" name="new-weight" id='new-weight' class="form-control">
+            <hr>
+            <h4>Select the animal's species:</h4>
+            <label class="radio-inline">
+              <input type="radio" name="species" id="Cat" value="Cat" checked>Cat
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="species" id="Rabbit" value="Rabbit">Rabbit
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="species" id="Hamster" value="Hamster">Hamster
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="species" id="Dog" value="Dog">Dog
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="species" id="Mouse" value="Mouse">Mouse
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="species" id="Snake" value="Snake">Snake
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="species" id="Lizard" value="Lizard">Lizard
+            </label>
+            <h4>Enter the animal's breed</h4>
+            <input type="text" name="new-breed" id='new-breed' class="form-control">
+            <hr>
+            <h4>Select the animal's age group</h4>
+            <select id="animalAge" name="animalAge" class="form-control">
+              <option value=""></option>
+              <option value="Baby">Baby</option>
+              <option value="Young">Young</option>
+              <option value="Adult">Adult</option>
+              <option value="Senior">Senior</option>
+            </select>
+            <hr>
+            <h4>Describe the animal's personality</h4>
+            <select class="form-control" id="animalSocial" name="animalSocial">
+              <option value=""></option>
+              <option value="Friendly">Friendly</option>
+              <option value="Independent">Independent</option>
+            </select>
+            <h4>Describe the animal's activity level</h4>
+            <select class="form-control" id="animalActivity" name="animalActivity">
+              <option value=""></option>
+              <option value="Active">Active</option>
+              <option value="Docile">Docile</option>
+            </select>
+            <hr>
+            <h4>Link to a picture of your animal</h4>
+            <input class="form-control" type="url" name="new-pic" id='new-pic' placeholder='URL for picture'>
+          </form>
+          <button class="btn btn-primary" type="button" id="addButton" name="addButton">Add Animal</button>
+          <button class="btn btn-default" type="button" id="allHumanButton" name="allHumanButton">View all Adopters</button>
+          <hr>
+        </div>
+      </div> <!-- END PET DATABASE ENTRY/HUMAN SEARCH FORM -->
+
+
       <div id="results">
         <div class="main-header">
           <h1>Adopt-a-Pet</h1>
         </div>
         <div class="index-links">
-          <h2><a href="index.html">Adopt a Pet </a>| <a href="animal.html">List a Pet</a></h2>
+          <h2><a href="#" class="adopters">Adopt a Pet </a>| <a href="#" class="orphans">List a Pet</a></h2>
         </div>
-        <div class="container result-container" id="search-again">
+        <div class="container result-container" id="all-results">
           <div id="post-search">
             <button class="btn btn-primary" id="revise-search">Revise Search</button>
             <button class="btn btn-danger" id="new-search">New Search</button>
             <button class="btn btn-default" id="favoritesbutton" data-toggle="modal" data-target="#fav-modal">View Favorites</button>
           </div>
           <div id="search-results">
-            <ul id="filtered-items"></ul>
+            <ul id="filtered-items"></ul> <!-- Filtered Pet Item List -->
           </div>
           <div id="animalProfiles">
             <ul id="pet-items"></ul> <!-- Full Pet Item List -->
           </div>
-        </div>
+          <div id="humanProfiles">
+            <h3>Potential Adopters</h3>
+            <ul id="filtered-human-items"></ul> <!-- Filtered Human Item List -->
+          </div>
+          <div id="full-results">
+            <div>
+              <ul id="full-items"></ul><!-- Full Human Item List -->
+            </div>
+          </div>
+        </div> <!-- End all results container -->
       </div>
+
+
+
+
       <!-- Favorites Modal -->
       <div class="modal fade" tabindex="-1" role="dialog" id="fav-modal">
         <div class="modal-dialog">

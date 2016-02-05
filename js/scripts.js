@@ -61,8 +61,11 @@ $(document).ready(function() {
       matchPets(newPerson);
       $("#results").show();
       $("#search-results").show();
-      $("#search-again").show();
+      $("#all-results").show();
       $("#search-form").hide();
+      $("#animalProfiles").hide();
+      $("#humanProfiles").hide();
+      $("#full-results").hide();
     }
   });
 
@@ -94,6 +97,17 @@ $(document).ready(function() {
    }
  });
 
+  $('a.adopters').click(function(){
+    $('#search-form').show();
+    $('#petEntryForm').hide();
+  });
+
+  $('a.orphans').click(function(){
+    $('#search-form').hide();
+    $('#petEntryForm').show();
+  });
+
+
   $('#allPetsButton').click(function(event) {
     event.preventDefault();
     $("#search-form").hide();
@@ -101,6 +115,9 @@ $(document).ready(function() {
     $("#search-results").hide();
     $("#search-again").show();
     $('#animalProfiles').show();
+    $('#all-results').show();
+    $("#humanProfiles").hide();
+    $("#full-results").hide();
   })
 
   $("#revise-search").click(function(event){

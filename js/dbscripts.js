@@ -93,6 +93,11 @@ window.onload = function() {
     humanDB.open(refreshHumans);
     $("#full-results").show();
     $("#petEntryForm").hide();
+    $('#results').show();
+    $('#all-results').show();
+    $('#search-results').hide();
+    $('#animalProfiles').hide();
+    $('#humanProfiles').hide();
     return false;
   }
 
@@ -125,6 +130,12 @@ window.onload = function() {
       matchHumans(animal);
       $("#humanProfiles").show();
       $("#petEntryForm").hide();
+      $("#full-results").hide();
+      $('#results').show();
+      $('#all-results').show();
+      $('#search-results').hide();
+      $('#animalProfiles').hide();
+
       newPetName.value = '';
       newPetWeight.value = '';
       newBreed.value = '';
@@ -142,34 +153,6 @@ window.onload = function() {
   return false;
   };
 
-  // favoritesbutton.onclick = function() {
-  //   var favArray = [];
-  //   var favList = document.getElementById('allfavorites');
-  //
-  //   $(".glyphicon-star").each(function() {
-  //     var id = parseInt($(this).attr("data-id"));
-  //     favArray.push(id);
-  //     console.log(favArray)
-  //   });
-  //
-  //   for(var i = 0; i < favArray.length; i ++) {
-  //
-  //     petDB.editPet(favArray[i], function(petToEdit) {
-  //       var li = document.createElement('li');
-  //       var span = document.createElement('span');
-  //       var petProps = showProps(petToEdit.animalObject, 'petToEdit.animalObject');
-  //       var image = document.createElement('img');
-  //       image.setAttribute('src', petToEdit.animalObject.profilePic);
-  //       span.innerHTML = petProps;
-  //       li.appendChild(image);
-  //       li.appendChild(span);
-  //
-  //       favList.appendChild(li);
-  //
-  //     });
-  //   }
-  //   //$("#pet-items").find(".glyphicon-star").
-  // };
 }
 
 // Display All pet results
@@ -244,6 +227,13 @@ function refreshPets() {
         petDB.editPet(id, function(petToEdit) {
           var pet = petToEdit.animalObject;
           matchHumans(pet);
+          $("#humanProfiles").show();
+          $("#petEntryForm").hide();
+          $("#full-results").hide();
+          $('#results').show();
+          $('#all-results').show();
+          $('#search-results').hide();
+          $('#animalProfiles').hide();
         });
       });
 
