@@ -1,22 +1,17 @@
-#Daren's Pizzeria
+#Adopt-a-Pet
 
-###By: Daren Schaad
-
+###By: Brad London, Abby Rolling, Daren Schaad, and Jess Guilford for Epicodus.
 ##Description
 
-Daren's Pizzeria is a website that mimics a real pizza restaurant's website where you can order items online for delivery or pick up.  The site is intended to help us to learn to work with objects in Javascript.
-
-- Small pizza's and large pizza's have a base price (includes sauce and cheese).
-- Added toppings cost extra
-- Delivery costs extra as well
+Adopt-a-Pet is a website that is intended to match up animals that need homes and people who want pets.  It is unique in that it works both ways, gathering a database of potential pet owners, not just potential pets.  This epicodus project teaches us to learn to work in groups while utilizing branches on github to simultaneously work on one project.
 
 ##Installation
 
-Install ping-pong locally by cloning this repository:
+Install Adopt-a-Pet locally by cloning this repository:
 
-https://github.com/darenschaad/pizza.git
+https://github.com/arolling/pet-tinder.git
 
-Or, you can run the application [here](http://darenschaad.github.io/pizza).
+Or, you can run the application [here](http://arolling.github.io/pet-tinder).
 
 ##Technologies Used
 
@@ -31,6 +26,6 @@ Or, you can run the application [here](http://darenschaad.github.io/pizza).
 
 ##Copyright (c)
 
- Copyright 2016 Daren Schaad.
+ Copyright 2016 Bad J Inc.
 
  This software is licensed under the Epicodus license.
