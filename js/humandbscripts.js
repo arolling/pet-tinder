@@ -134,8 +134,8 @@ function refreshHumans() {
           matchPets(human);
           $('#results').show();
           $('#all-results').show();
-          $('#search-results').hide();
-          $('#animalProfiles').show();
+          $('#search-results').show();
+          $('#animalProfiles').hide();
           $("#humanProfiles").hide();
           $("#petEntryForm").hide();
           $("#full-results").hide();
