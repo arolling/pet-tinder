@@ -88,6 +88,13 @@ window.onload = function() {
   //var newPic = document.getElementById('new-pic');
   //profile pic - file url?
   // Handle new pet submissions.
+  allHumanButton.onclick = function(){
+    humanDB.open(refreshHumans);
+    $("#full-results").show();
+    $("#petEntryForm").hide();
+    return false;
+  }
+
   addButton.onclick = function(){
     var newName = newPetName.value;
     var newWeight = newPetWeight.value;
@@ -115,6 +122,8 @@ window.onload = function() {
         refreshPets();
       });
       matchHumans(animal);
+      $("#humanProfiles").show();
+      $("#petEntryForm").hide();
       newPetName.value = '';
       newPetWeight.value = '';
       newBreed.value = '';
@@ -229,6 +238,14 @@ function refreshPets() {
         }
       });
 
+      matchButton.addEventListener('click', function(e) {
+        var id = parseInt(e.target.getAttribute('data-id'));
+        petDB.editPet(id, function(petToEdit) {
+          var pet = petToEdit.animalObject;
+          matchHumans(pet);
+        });
+      });
+
       editButton.addEventListener('click', function(e) {
         var id = parseInt(e.target.getAttribute('data-id'));
         petDB.editPet(id, function(petToEdit) {
@@ -273,16 +290,25 @@ function matchPets(human) {
 
       var span = document.createElement('span');
       var image = document.createElement('img');
+      var favoriteSpan = document.createElement('span');
       var petProps = showProps(pet.animalObject, 'pet.animalObject');
       span.innerHTML = petProps;
-
+      favoriteSpan.className = "glyphicon glyphicon-star-empty";
+      favoriteSpan.setAttribute("data-id", pet.timestamp);
       image.setAttribute('src', pet.animalObject.profilePic);
 
       li.appendChild(span);
       li.appendChild(image);
-
+      li.appendChild(favoriteSpan);
       petList.appendChild(li);
 
+      favoriteSpan.addEventListener('click', function(e) {
+        if (this.className === "glyphicon glyphicon-star-empty") {
+          this.className = "glyphicon glyphicon-star";
+        } else if (this.className === "glyphicon glyphicon-star") {
+          this.className = "glyphicon glyphicon-star-empty";
+        }
+      });
     }
   });
 }

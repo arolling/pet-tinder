@@ -60,11 +60,20 @@ $(document).ready(function() {
       });
       matchPets(newPerson);
       $("#results").show();
+      $("#search-results").show();
+      $("#search-again").show();
       $("#search-form").hide();
-
-
     }
   });
+
+  $('#allPetsButton').click(function(event) {
+    event.preventDefault();
+    $("#search-form").hide();
+    $('#results').show();
+    $("#search-results").hide();
+    $("#search-again").show();
+    $('#animalProfiles').show();
+  })
 
   $("#revise-search").click(function(event){
     $("#search-form").show();

@@ -92,6 +92,7 @@
             </label>
             <hr>
             <button class="btn btn-info" type="submit">Submit</button>
+            <button class="btn btn-default" type="button" id="allPetsButton" name="allPetsButton">View all Animals</button>
           </form>
         </div>
       </div>
@@ -102,16 +103,17 @@
         <div class="index-links">
           <h2><a href="index.html">Adopt a Pet </a>| <a href="animal.html">List a Pet</a></h2>
         </div>
-        <div class="container result-container">
+        <div class="container result-container" id="search-again">
           <div id="post-search">
             <button class="btn btn-primary" id="revise-search">Revise Search</button>
             <button class="btn btn-danger" id="new-search">New Search</button>
+            <button class="btn btn-default" id="favoritesbutton">View Favorites</button>
           </div>
           <div id="search-results">
-            <ul id="filtered-items"></ul>
+            <ul id="filtered-items"></ul>          
           </div>
-          <div id="full-results">
-            <ul id="full-items"></ul>
+          <div id="animalProfiles">
+            <ul id="pet-items"></ul> <!-- Full Pet Item List -->
           </div>
         </div>
       </div>

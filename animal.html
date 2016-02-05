@@ -21,7 +21,7 @@
     <div class="animal-links">
       <h2><a href="index.html">Adopt a Pet </a>| <a href="animal.html">List a Pet</a></h2>
     </div>
-    <div class="container">
+    <div class="container" id="petEntryForm">
 
       <!-- Form for new Pet Items -->
       <form id="new-pet-form" method="POST" action="#" class="form-group">
@@ -81,28 +81,23 @@
         <input class="form-control" type="url" name="new-pic" id='new-pic' placeholder='URL for picture'>
       </form>
       <button class="btn btn-primary" type="button" id="addButton" name="addButton">Add Animal</button>
+      <button class="btn btn-default" type="button" id="allHumanButton" name="allHumanButton">View all Adopters</button>
       <hr>
     </div>
-  </div>
-  <div class="container result-container">
-    <div class="row">
-      <div class="col-md-6" id="animalProfiles">
-        <button class="btn btn-default" id="favoritesbutton">View Favorites</button>
-        <ul id="pet-items"></ul> <!-- Full Pet Item List -->
-      </div>
-      <div class="col-md-6 text-center" id="humanProfiles">
-        <h3>Potential Adopters</h3>
-        <ul id="filtered-human-items"></ul> <!-- Filtered Human Item List -->
+    <div class="container result-container text-center" id="humanProfiles">
+      <h3>Potential Adopters</h3>
+      <button class="btn btn-default" id="favoritesbutton">View Favorites</button>
+      <ul id="filtered-human-items"></ul> <!-- Filtered Human Item List -->
+    </div>
+
+    <div class="container result-container" id="full-results">
+      <div>
+        <ul id="full-items"></ul>
       </div>
     </div>
-  </div>
-  <div class="container result-container">
-    <ul id="allfavorites">
-    </ul>
   </div>
   <div class="footer">
     Created by Brad London, Abby Rolling, Daren Schaad, and Jess Guilford for Epicodus. &copy; Bad J Inc.
   </div>
-
 </body>
 </html>
