@@ -105,11 +105,11 @@ function refreshHumans() {
       favoriteSpan.className = "glyphicon glyphicon-star-empty";
       favoriteSpan.setAttribute("data-id", human.timestamp);
       li.appendChild(image);
-      li.appendChild(linebreak);
-      li.appendChild(span);
       li.appendChild(deleteButton);
       li.appendChild(editButton);
       li.appendChild(matchButton);
+      li.appendChild(linebreak);
+      li.appendChild(span);
       li.appendChild(favoriteSpan);
       humanList.appendChild(li);
 

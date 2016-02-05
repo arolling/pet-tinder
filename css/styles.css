@@ -12,6 +12,7 @@ body {
 
 img {
 	max-width: 300px;
+	max-height: 300px;
 	border-radius: 15px;
 }
 #filtered-items, #full-items, #allfavorites, #filtered-human-items, #pet-items {
@@ -31,7 +32,7 @@ ul {
 	padding: 0.5em;
 	border: 1px solid #EEE;
 	margin: 0.5em 0;
-	height: 500px;
+	height: 650px;
 	width: 315px;
 	vertical-align: bottom;
 }
@@ -180,11 +181,7 @@ label {
 }*/
 
 
-.pet-delete-button {
-	margin: 5px;
-}
-
-.pet-match-button {
+.pet-delete-button, .pet-match-button, .human-delete-button, .human-match-button  {
 	margin: 5px;
 }
 

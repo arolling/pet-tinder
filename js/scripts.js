@@ -82,7 +82,7 @@ $(document).ready(function() {
    var petfavArray = [];
    var humanfavArray = [];
    var favList = document.getElementById('allfavorites');
-
+   favList.innerHTML = '';
    $(".pet-favorite").each(function() {
      var id = parseInt($(this).attr("data-id"));
      petfavArray.push(id);
@@ -122,12 +122,16 @@ $(document).ready(function() {
  });
 
   $('a.adopters').click(function(){
+    refreshPets();
+    refreshHumans();
     $('#search-form').show();
     $('#petEntryForm').hide();
     $('#results').hide();
   });
 
   $('a.orphans').click(function(){
+    refreshPets();
+    refreshHumans();
     $('#search-form').hide();
     $('#petEntryForm').show();
     $('#results').hide();
