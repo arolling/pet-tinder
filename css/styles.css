@@ -8,14 +8,14 @@ body, html {
 body {
 	font-family: Helvetica, Arial, sans-serif;
 	color: #545454;
-	/*background-color: #F7F7F7;*/
 }
 
 img {
 	max-width: 300px;
+	max-height: 300px;
 	border-radius: 15px;
 }
-#filtered-items {
+#filtered-items, #full-items, #allfavorites, #filtered-human-items, #pet-items {
 	list-style: none;
 	padding: 0.5em 1em;
 	margin: 0;
@@ -25,20 +25,29 @@ ul {
 	min-height: 500px;
 }
 
-#filtered-items li {
+#filtered-items li, #full-items li, #allfavorites li, #filtered-human-items li, #pet-items li {
 	display: inline-block;
 	text-align: center;
 	font-size: 0.9em;
 	padding: 0.5em;
 	border: 1px solid #EEE;
 	margin: 0.5em 0;
-	height: 500px;
+	height: 650px;
 	width: 315px;
 	vertical-align: bottom;
 }
 
 .background-img {
 	background-image: url("../img/desertdog.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding-top: 50px;
+	padding-bottom: 100px;
+	min-height: 1000px;
+}
+
+.database-background {
+	background-image: url("../img/dogwaiting.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	padding-top: 50px;
@@ -59,8 +68,15 @@ body {
 	padding-bottom: 50px;
 	min-height: 100px;
 }
-/*background-image: url("../images/desertdog.jpg");
-background-repeat: no-repeat;*/
+
+.container {
+	max-width: 600px;
+	background-color: #fff;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-radius: 7px;
+}
+
 
 .main-container {
 	max-width: 600px;
@@ -71,6 +87,7 @@ background-repeat: no-repeat;*/
 }
 
 .result-container {
+	display: none;
 	max-width: 1005px;
 	background-color: #fff;
 	padding-top: 20px;
@@ -96,7 +113,7 @@ input[type="checkbox"] {
 	margin-bottom: 10px;
 }
 
-#results {
+#results, #petEntryForm {
 	display: none;
 }
 
@@ -113,6 +130,26 @@ input[type="checkbox"] {
 	opacity: .7;
 }
 
+.animal-links h2 {
+	text-align: center;
+	color: black;
+}
+
+.animal-links a {
+	text-align: center;
+	color: #e5ccff;
+}
+
+.index-links h2 {
+	text-align: center;
+	color: black;
+}
+
+.index-links a {
+	text-align: center;
+	color: #FF9219;
+}
+
 label {
 	font-size: 1.1em;
 }
@@ -125,4 +162,36 @@ label {
 	text-align: center;
 	color: #fff;
 	padding-top: 15px;
+	height: 155px
+}
+
+#animalProfiles {
+	margin-top: 10px;
+}
+
+
+.radiotext {
+	color: #545454;
+}
+
+/*.wrapper {
+	min-height: 100%;
+	height: 100%;
+	margin: 0 auto -155px;
+}*/
+
+
+.pet-delete-button, .pet-match-button, .human-delete-button, .human-match-button  {
+	margin: 5px;
+}
+
+.glyphicon {
+	font-size: 2em;
+	margin: 3px;
+	vertical-align: middle;
+	color: #FF9219;
+}
+
+.modal-large {
+     width: 80%;
 }
