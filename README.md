@@ -16,6 +16,7 @@ Or, you can run the application [here](http://arolling.github.io/pet-tinder).
 ##Technologies Used
 
 - HTML
+- IndexedDB
 - CSS with Bootstrap
 - Markdown
 - Javascript
