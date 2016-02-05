@@ -67,12 +67,13 @@ function showProps(obj, objName) {
   var result = "";
   for (var i in obj) {
     if (obj.hasOwnProperty(i) && i != 'profilePic') {
+      // for (var j in keys)
         result += obj[i] + "<br>";
-    }
+      }
   }
   // console.log(result);
   return result;
-}
+};
 
 window.onload = function() {
 
@@ -278,8 +279,8 @@ function matchPets(human) {
 
       image.setAttribute('src', pet.animalObject.profilePic);
 
-      li.appendChild(span);
       li.appendChild(image);
+      li.appendChild(span);
 
       petList.appendChild(li);
 
