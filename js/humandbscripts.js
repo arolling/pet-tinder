@@ -61,17 +61,6 @@ var matchHumanBudget = function(human, animal) {
   }
 }
 
-// function showProps(obj, objName) {
-//   var result = "";
-//   for (var i in obj) {
-//     if (obj.hasOwnProperty(i) && i != 'profilePic') {
-//         result += obj[i] + "<br>";
-//     }
-//   }
-//   // console.log(result);
-//   return result;
-// }
-
 
 // Display full human results
 function refreshHumans() {
@@ -97,6 +86,12 @@ function refreshHumans() {
       editButton.setAttribute("data-id", human.timestamp);
       editButton.innerHTML = "Edit";
 
+      var matchButton = document.createElement('button');
+      matchButton.type = "button";
+      matchButton.className = "human-match-button btn btn-success";
+      matchButton.setAttribute("data-id", human.timestamp);
+      matchButton.innerHTML = "Matches";
+
       var span = document.createElement('span');
       var favoriteSpan = document.createElement('span');
       var humanProps = showProps(human.personObject, 'human.personObject');
@@ -107,6 +102,7 @@ function refreshHumans() {
       li.appendChild(span);
       li.appendChild(deleteButton);
       li.appendChild(editButton);
+      li.appendChild(matchButton);
       li.appendChild(favoriteSpan);
       humanList.appendChild(li);
 
@@ -122,10 +118,25 @@ function refreshHumans() {
         }
       });
 
+      matchButton.addEventListener('click', function(e) {
+        var id = parseInt(e.target.getAttribute('data-id'));
+        humanDB.editHuman(id, function(humanToEdit) {
+          var human = humanToEdit.personObject;
+          matchPets(human);
+          $('#results').show();
+          $('#all-results').show();
+          $('#search-results').hide();
+          $('#animalProfiles').show();
+          $("#humanProfiles").hide();
+          $("#petEntryForm").hide();
+          $("#full-results").hide();
+        });
+      });
+
       favoriteSpan.addEventListener('click', function(e) {
         if (this.className === "glyphicon glyphicon-star-empty") {
-          this.className = "glyphicon glyphicon-star";
-        } else if (this.className === "glyphicon glyphicon-star") {
+          this.className = "glyphicon glyphicon-star human-favorite";
+        } else if (this.className === "glyphicon glyphicon-star human-favorite") {
           this.className = "glyphicon glyphicon-star-empty";
         }
       });
@@ -181,8 +192,8 @@ function matchHumans(pet) {
       humanList.appendChild(li);
       favoriteSpan.addEventListener('click', function(e) {
         if (this.className === "glyphicon glyphicon-star-empty") {
-          this.className = "glyphicon glyphicon-star";
-        } else if (this.className === "glyphicon glyphicon-star") {
+          this.className = "glyphicon glyphicon-star human-favorite";
+        } else if (this.className === "glyphicon glyphicon-star human-favorite") {
           this.className = "glyphicon glyphicon-star-empty";
         }
       });

@@ -249,6 +249,8 @@ function refreshPets() {
           $("#animalSocial").val(petToEdit.animalObject.social);
           $("#animalActivity").val(petToEdit.animalObject.activity);
           $("#new-pic").val(petToEdit.animalObject.profilePic);
+          $('#results').hide();
+          $('#petEntryForm').show();
           petDB.deletePet(id, refreshPets);
           window.scrollTo(0,0);
         });
@@ -256,8 +258,8 @@ function refreshPets() {
 
       favoriteSpan.addEventListener('click', function(e) {
         if (this.className === "glyphicon glyphicon-star-empty") {
-          this.className = "glyphicon glyphicon-star";
-        } else if (this.className === "glyphicon glyphicon-star") {
+          this.className = "glyphicon glyphicon-star pet-favorite";
+        } else if (this.className === "glyphicon glyphicon-star pet-favorite") {
           this.className = "glyphicon glyphicon-star-empty";
         }
       });
@@ -296,8 +298,8 @@ function matchPets(human) {
 
       favoriteSpan.addEventListener('click', function(e) {
         if (this.className === "glyphicon glyphicon-star-empty") {
-          this.className = "glyphicon glyphicon-star";
-        } else if (this.className === "glyphicon glyphicon-star") {
+          this.className = "glyphicon glyphicon-star pet-favorite";
+        } else if (this.className === "glyphicon glyphicon-star pet-favorite") {
           this.className = "glyphicon glyphicon-star-empty";
         }
       });

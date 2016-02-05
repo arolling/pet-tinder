@@ -70,18 +70,24 @@ $(document).ready(function() {
   });
 
  $("#favoritesbutton").click(function(event){
-   var favArray = [];
+   var petfavArray = [];
+   var humanfavArray = [];
    var favList = document.getElementById('allfavorites');
 
-   $(".glyphicon-star").each(function() {
+   $(".pet-favorite").each(function() {
      var id = parseInt($(this).attr("data-id"));
-     favArray.push(id);
-     console.log(favArray)
+     petfavArray.push(id);
+     console.log(petfavArray);
    });
 
-   for(var i = 0; i < favArray.length; i ++) {
+   $(".human-favorite").each(function() {
+     var id = parseInt($(this).attr("data-id"));
+     humanfavArray.push(id);
+     console.log(humanfavArray);
+   });
 
-     petDB.editPet(favArray[i], function(petToEdit) {
+   for(var i = 0; i < petfavArray.length; i ++) {
+     petDB.editPet(petfavArray[i], function(petToEdit) {
        var li = document.createElement('li');
        var span = document.createElement('span');
        var petProps = showProps(petToEdit.animalObject, 'petToEdit.animalObject');
@@ -90,11 +96,20 @@ $(document).ready(function() {
        span.innerHTML = petProps;
        li.appendChild(image);
        li.appendChild(span);
-
        favList.appendChild(li);
-
      });
    }
+   for(var i = 0; i < humanfavArray.length; i ++) {
+     humanDB.editHuman(humanfavArray[i], function(humanToEdit) {
+       var li = document.createElement('li');
+       var span = document.createElement('span');
+       var humanProps = showProps(humanToEdit.personObject, 'humanToEdit.personObject');
+       span.innerHTML = humanProps;
+       li.appendChild(span);
+       favList.appendChild(li);
+     });
+   }
+
  });
 
   $('a.adopters').click(function(){
