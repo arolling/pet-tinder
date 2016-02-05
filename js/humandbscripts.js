@@ -98,12 +98,16 @@ function refreshHumans() {
       editButton.innerHTML = "Edit";
 
       var span = document.createElement('span');
+      var favoriteSpan = document.createElement('span');
       var humanProps = showProps(human.personObject, 'human.personObject');
       span.innerHTML = humanProps;
 
+      favoriteSpan.className = "glyphicon glyphicon-star-empty";
+      favoriteSpan.setAttribute("data-id", human.timestamp);
       li.appendChild(span);
       li.appendChild(deleteButton);
       li.appendChild(editButton);
+      li.appendChild(favoriteSpan);
       humanList.appendChild(li);
 
       // Setup an event listener for the delete button.
@@ -115,6 +119,14 @@ function refreshHumans() {
         }
         else {
           alert("The entry has not been deleted");
+        }
+      });
+
+      favoriteSpan.addEventListener('click', function(e) {
+        if (this.className === "glyphicon glyphicon-star-empty") {
+          this.className = "glyphicon glyphicon-star";
+        } else if (this.className === "glyphicon glyphicon-star") {
+          this.className = "glyphicon glyphicon-star-empty";
         }
       });
 
@@ -159,13 +171,21 @@ function matchHumans(pet) {
       li.setAttribute("data-id", human.timestamp);
 
       var span = document.createElement('span');
-
+      var favoriteSpan = document.createElement('span');
       var humanProps = showProps(human.personObject, 'human.personObject');
       span.innerHTML = humanProps;
-
+      favoriteSpan.className = "glyphicon glyphicon-star-empty";
+      favoriteSpan.setAttribute("data-id", human.timestamp);
       li.appendChild(span);
-
+      li.appendChild(favoriteSpan);
       humanList.appendChild(li);
+      favoriteSpan.addEventListener('click', function(e) {
+        if (this.className === "glyphicon glyphicon-star-empty") {
+          this.className = "glyphicon glyphicon-star";
+        } else if (this.className === "glyphicon glyphicon-star") {
+          this.className = "glyphicon glyphicon-star-empty";
+        }
+      });
     }
   });
 }

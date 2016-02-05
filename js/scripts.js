@@ -60,11 +60,48 @@ $(document).ready(function() {
       });
       matchPets(newPerson);
       $("#results").show();
+      $("#search-results").show();
+      $("#search-again").show();
       $("#search-form").hide();
-
-
     }
   });
+
+ $("#favoritesbutton").click(function(event){
+   var favArray = [];
+   var favList = document.getElementById('allfavorites');
+
+   $(".glyphicon-star").each(function() {
+     var id = parseInt($(this).attr("data-id"));
+     favArray.push(id);
+     console.log(favArray)
+   });
+
+   for(var i = 0; i < favArray.length; i ++) {
+
+     petDB.editPet(favArray[i], function(petToEdit) {
+       var li = document.createElement('li');
+       var span = document.createElement('span');
+       var petProps = showProps(petToEdit.animalObject, 'petToEdit.animalObject');
+       var image = document.createElement('img');
+       image.setAttribute('src', petToEdit.animalObject.profilePic);
+       span.innerHTML = petProps;
+       li.appendChild(image);
+       li.appendChild(span);
+
+       favList.appendChild(li);
+
+     });
+   }
+ });
+
+  $('#allPetsButton').click(function(event) {
+    event.preventDefault();
+    $("#search-form").hide();
+    $('#results').show();
+    $("#search-results").hide();
+    $("#search-again").show();
+    $('#animalProfiles').show();
+  })
 
   $("#revise-search").click(function(event){
     $("#search-form").show();
