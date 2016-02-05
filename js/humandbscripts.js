@@ -97,6 +97,7 @@ function refreshHumans() {
       var humanProps = showProps(human.personObject, 'human.personObject');
       span.innerHTML = humanProps;
       var linebreak = document.createElement("br");
+      var linebreak2 = document.createElement("br");
 
       var image = document.createElement('img');
       image.setAttribute('src', human.personObject.profilePic);
@@ -105,10 +106,11 @@ function refreshHumans() {
       favoriteSpan.className = "glyphicon glyphicon-star-empty";
       favoriteSpan.setAttribute("data-id", human.timestamp);
       li.appendChild(image);
+      li.appendChild(linebreak);
       li.appendChild(deleteButton);
       li.appendChild(editButton);
       li.appendChild(matchButton);
-      li.appendChild(linebreak);
+      li.appendChild(linebreak2);
       li.appendChild(span);
       li.appendChild(favoriteSpan);
       humanList.appendChild(li);
@@ -166,6 +168,8 @@ function refreshHumans() {
             $('input[value=' + humanToEdit.personObject.activeDocile + ']').prop('checked', true);
           }
           $("#budget").val(humanToEdit.personObject.budget);
+          $('#humanBio').val(humanToEdit.personObject.bio);
+          $("#new-human-pic").val(humanToEdit.personObject.profilePic);
           $("#results").hide();
           $("#search-form").show();
           humanDB.deleteHuman(id, refreshHumans);

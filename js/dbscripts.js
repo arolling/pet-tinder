@@ -129,6 +129,7 @@ window.onload = function() {
         refreshPets();
       });
       matchHumans(animal);
+      $('#newPetName').html(newName + ' the ' + animal.species);
       $("#humanProfiles").show();
       $("#petEntryForm").hide();
       $("#full-results").hide();
@@ -249,6 +250,7 @@ function refreshPets() {
           $("#animalAge").val(petToEdit.animalObject.ageCategory);
           $("#animalSocial").val(petToEdit.animalObject.social);
           $("#animalActivity").val(petToEdit.animalObject.activity);
+          $("#animalBio").val(petToEdit.animalObject.bio);
           $("#new-pic").val(petToEdit.animalObject.profilePic);
           $('#results').hide();
           $('#petEntryForm').show();
@@ -290,8 +292,10 @@ function matchPets(human) {
       favoriteSpan.className = "glyphicon glyphicon-star-empty";
       favoriteSpan.setAttribute("data-id", pet.timestamp);
       image.setAttribute('src', pet.animalObject.profilePic);
+      var linebreak = document.createElement("br");
 
       li.appendChild(image);
+      li.appendChild(linebreak);
       li.appendChild(span);
 
       li.appendChild(favoriteSpan);

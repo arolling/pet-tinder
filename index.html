@@ -182,24 +182,25 @@
         </div>
         <div class="container result-container" id="all-results">
           <div id="post-search">
-            <button class="btn btn-primary" id="revise-search">Revise Search</button>
+            <!-- <button class="btn btn-primary" id="revise-search">Revise Search</button> -->
             <button class="btn btn-danger" id="new-search">New Search</button>
             <button class="btn btn-default" id="favoritesbutton" data-toggle="modal" data-target="#fav-modal">View Favorites</button>
           </div>
           <div id="search-results">
+            <h3>Potential Animals for <span id="newHumanName"></span></h3>
             <ul id="filtered-items"></ul> <!-- Filtered Pet Item List -->
           </div>
           <div id="animalProfiles">
+            <h3>All Pets Available for Adoption</h3>
             <ul id="pet-items"></ul> <!-- Full Pet Item List -->
           </div>
           <div id="humanProfiles">
-            <h3>Potential Adopters</h3>
+            <h3>Potential Adopters for <span id="newPetName"></span></h3>
             <ul id="filtered-human-items"></ul> <!-- Filtered Human Item List -->
           </div>
           <div id="full-results">
-            <div>
-              <ul id="full-items"></ul><!-- Full Human Item List -->
-            </div>
+            <h3>All People Looking For Pets</h3>
+            <ul id="full-items"></ul><!-- Full Human Item List -->
           </div>
         </div> <!-- End all results container -->
       </div>
@@ -209,7 +210,7 @@
 
       <!-- Favorites Modal -->
       <div class="modal fade" tabindex="-1" role="dialog" id="fav-modal">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-large">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>

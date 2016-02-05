@@ -67,6 +67,7 @@ $(document).ready(function() {
       humanDB.createHuman(newPerson, function(human) {
         refreshHumans();
       });
+      $('#newHumanName').html(inputtedFirstName + ' ' + inputtedLastName);
       matchPets(newPerson);
       $("#results").show();
       $("#search-results").show();
@@ -102,8 +103,10 @@ $(document).ready(function() {
        var petProps = showProps(petToEdit.animalObject, 'petToEdit.animalObject');
        var image = document.createElement('img');
        image.setAttribute('src', petToEdit.animalObject.profilePic);
+       var linebreak = document.createElement("br");
        span.innerHTML = petProps;
        li.appendChild(image);
+       li.appendChild(linebreak);
        li.appendChild(span);
        favList.appendChild(li);
      });
@@ -114,6 +117,12 @@ $(document).ready(function() {
        var span = document.createElement('span');
        var humanProps = showProps(humanToEdit.personObject, 'humanToEdit.personObject');
        span.innerHTML = humanProps;
+       var image = document.createElement('img');
+       image.setAttribute('src', humanToEdit.personObject.profilePic);
+       var linebreak = document.createElement("br");
+
+       li.appendChild(image);
+       li.appendChild(linebreak);
        li.appendChild(span);
        favList.appendChild(li);
      });
@@ -122,8 +131,22 @@ $(document).ready(function() {
  });
 
   $('a.adopters').click(function(){
+    $("#search-form").show();
+    $("#results").hide();
+    $("input#firstName").val('');
+    $("input#lastName").val('');
+    $('textarea#humanBio').val('');
+    $("input#new-human-pic").val('');
+    $("input:checkbox:checked.species").removeAttr("checked");
+    $("input[name=introvertedExtroverted]").attr("checked", false);
+    $("input[name=activeDocile]").attr("checked", false);
+    $("select#budget").val('20');
     refreshPets();
     refreshHumans();
+    var petList = document.getElementById('filtered-items');
+    petList.innerHTML = '';
+    var humanList = document.getElementById('filtered-human-items');
+    humanList.innerHTML = '';
     $('#search-form').show();
     $('#petEntryForm').hide();
     $('#results').hide();
@@ -132,6 +155,10 @@ $(document).ready(function() {
   $('a.orphans').click(function(){
     refreshPets();
     refreshHumans();
+    var petList = document.getElementById('filtered-items');
+    petList.innerHTML = '';
+    var humanList = document.getElementById('filtered-human-items');
+    humanList.innerHTML = '';
     $('#search-form').hide();
     $('#petEntryForm').show();
     $('#results').hide();
@@ -153,6 +180,12 @@ $(document).ready(function() {
   $("#revise-search").click(function(event){
     $("#search-form").show();
     $("#results").hide();
+    refreshPets();
+    refreshHumans();
+    var petList = document.getElementById('filtered-items');
+    petList.innerHTML = '';
+    var humanList = document.getElementById('filtered-human-items');
+    humanList.innerHTML = '';
   });
 
   $("#new-search").click(function(event){
@@ -161,9 +194,16 @@ $(document).ready(function() {
     $("input#firstName").val('');
     $("input#lastName").val('');
     $('textarea#humanBio').val('');
+    $("input#new-human-pic").val('');
     $("input:checkbox:checked.species").removeAttr("checked");
     $("input[name=introvertedExtroverted]").attr("checked", false);
     $("input[name=activeDocile]").attr("checked", false);
-    $("select#budget").val('20')
+    $("select#budget").val('20');
+    refreshPets();
+    refreshHumans();
+    var petList = document.getElementById('filtered-items');
+    petList.innerHTML = '';
+    var humanList = document.getElementById('filtered-human-items');
+    humanList.innerHTML = '';
   });
 });
