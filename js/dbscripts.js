@@ -290,16 +290,25 @@ function matchPets(human) {
 
       var span = document.createElement('span');
       var image = document.createElement('img');
+      var favoriteSpan = document.createElement('span');
       var petProps = showProps(pet.animalObject, 'pet.animalObject');
       span.innerHTML = petProps;
-
+      favoriteSpan.className = "glyphicon glyphicon-star-empty";
+      favoriteSpan.setAttribute("data-id", pet.timestamp);
       image.setAttribute('src', pet.animalObject.profilePic);
 
       li.appendChild(span);
       li.appendChild(image);
-
+      li.appendChild(favoriteSpan);
       petList.appendChild(li);
 
+      favoriteSpan.addEventListener('click', function(e) {
+        if (this.className === "glyphicon glyphicon-star-empty") {
+          this.className = "glyphicon glyphicon-star";
+        } else if (this.className === "glyphicon glyphicon-star") {
+          this.className = "glyphicon glyphicon-star-empty";
+        }
+      });
     }
   });
 }

@@ -70,7 +70,8 @@ $(document).ready(function() {
     event.preventDefault();
     $("#search-form").hide();
     $('#results').show();
-    $('#listAllAnimals').show();
+    $("#search-results").hide();
+    $("#search-again").show();
     $('#animalProfiles').show();
   })
 
