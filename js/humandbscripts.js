@@ -96,9 +96,16 @@ function refreshHumans() {
       var favoriteSpan = document.createElement('span');
       var humanProps = showProps(human.personObject, 'human.personObject');
       span.innerHTML = humanProps;
+      var linebreak = document.createElement("br");
+
+      var image = document.createElement('img');
+      image.setAttribute('src', human.personObject.profilePic);
+      li.appendChild(image);
 
       favoriteSpan.className = "glyphicon glyphicon-star-empty";
       favoriteSpan.setAttribute("data-id", human.timestamp);
+      li.appendChild(image);
+      li.appendChild(linebreak);
       li.appendChild(span);
       li.appendChild(deleteButton);
       li.appendChild(editButton);
@@ -187,6 +194,12 @@ function matchHumans(pet) {
       span.innerHTML = humanProps;
       favoriteSpan.className = "glyphicon glyphicon-star-empty";
       favoriteSpan.setAttribute("data-id", human.timestamp);
+      var linebreak = document.createElement("br");
+      var image = document.createElement('img');
+      image.setAttribute('src', human.personObject.profilePic);
+
+      li.appendChild(image);
+      li.appendChild(linebreak);
       li.appendChild(span);
       li.appendChild(favoriteSpan);
       humanList.appendChild(li);

@@ -117,6 +117,7 @@ window.onload = function() {
       animal.ageCategory = newAge;
       animal.social = $('select#animalSocial').val();
       animal.activity = $('select#animalActivity').val();
+      animal.bio = $('textarea#animalBio').val();
       animal.profilePic = $("input#new-pic").val();
         if (animal.profilePic === '') {
           animal.profilePic = "img/default.jpg";

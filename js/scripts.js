@@ -5,6 +5,8 @@ function Person(firstName, lastName) {
   this.budget = "";
   this.introvertedExtroverted = "";
   this.activeDocile = "";
+  this.profilePic = '';
+  this.bio = '';
 }
 
 function Animal(animalName, animalWeight){
@@ -16,6 +18,7 @@ function Animal(animalName, animalWeight){
   this.social = "";
   this.activity = "";
   this.profilePic = "";
+  this.bio = '';
 }
 
 $(document).ready(function() {
@@ -35,11 +38,17 @@ $(document).ready(function() {
     var inputtedFirstName = $("input#firstName").val();
     var inputtedLastName = $("input#lastName").val();
     var newPerson = new Person(inputtedFirstName, inputtedLastName);
+    newPerson.profilePic = $("input#new-human-pic").val();
+      if (newPerson.profilePic === '') {
+        newPerson.profilePic = "img/humandefault.jpg";
+      } else {
+        newPerson.profilePic = $("input#new-human-pic").val();
+      }
 
     var animalType = $("input:checkbox:checked.species").map(function(){
       newPerson.animalType.push((this).value);
     });
-
+    newPerson.bio = $('textarea#humanBio').val();
     var introvertedExtroverted = $("input[name=introvertedExtroverted]:checked").val();
     if (introvertedExtroverted) {
       newPerson.introvertedExtroverted = introvertedExtroverted;
@@ -115,11 +124,13 @@ $(document).ready(function() {
   $('a.adopters').click(function(){
     $('#search-form').show();
     $('#petEntryForm').hide();
+    $('#results').hide();
   });
 
   $('a.orphans').click(function(){
     $('#search-form').hide();
     $('#petEntryForm').show();
+    $('#results').hide();
   });
 
 
@@ -145,6 +156,7 @@ $(document).ready(function() {
     $("#results").hide();
     $("input#firstName").val('');
     $("input#lastName").val('');
+    $('textarea#humanBio').val('');
     $("input:checkbox:checked.species").removeAttr("checked");
     $("input[name=introvertedExtroverted]").attr("checked", false);
     $("input[name=activeDocile]").attr("checked", false);
