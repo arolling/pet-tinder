@@ -61,16 +61,16 @@ var matchHumanBudget = function(human, animal) {
   }
 }
 
-function showProps(obj, objName) {
-  var result = "";
-  for (var i in obj) {
-    if (obj.hasOwnProperty(i) && i != 'profilePic') {
-        result += obj[i] + "<br>";
-    }
-  }
-  // console.log(result);
-  return result;
-}
+// function showProps(obj, objName) {
+//   var result = "";
+//   for (var i in obj) {
+//     if (obj.hasOwnProperty(i) && i != 'profilePic') {
+//         result += obj[i] + "<br>";
+//     }
+//   }
+//   // console.log(result);
+//   return result;
+// }
 
 
 // Display full human results

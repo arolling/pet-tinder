@@ -5,6 +5,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <title>Animal Database Entry</title>
   <script src="js/jquery-1.12.0.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   <script src="js/scripts.js"></script>
   <script src="js/db.js"></script>
   <script src="js/humandb.js"></script>
@@ -84,9 +85,11 @@
       <button class="btn btn-default" type="button" id="allHumanButton" name="allHumanButton">View all Adopters</button>
       <hr>
     </div>
+
+  </div>
     <div class="container result-container text-center" id="humanProfiles">
       <h3>Potential Adopters</h3>
-      <button class="btn btn-default" id="favoritesbutton">View Favorites</button>
+      <!-- <button class="btn btn-default" id="favoritesbutton" data-toggle="modal" data-target="#fav-modal">View Favorites</button> -->
       <ul id="filtered-human-items"></ul> <!-- Filtered Human Item List -->
     </div>
 
@@ -95,7 +98,7 @@
         <ul id="full-items"></ul>
       </div>
     </div>
-  </div>
+
   <div class="footer">
     Created by Brad London, Abby Rolling, Daren Schaad, and Jess Guilford for Epicodus. &copy; Bad J Inc.
   </div>
